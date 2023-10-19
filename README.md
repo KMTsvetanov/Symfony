@@ -12,6 +12,9 @@ Setup
 
 * For a development build / setup, simply run
 ``docker compose -f docker-compose.dev.yml up``
+  
+
+`` TODO docker compose -f docker-compose.dev.yml --env-file .env.local up --build -d``
 
 
 
