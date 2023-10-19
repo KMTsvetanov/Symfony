@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 //xdebug_info();die;
-phpinfo();die;
+//phpinfo();die;
 
 use App\Repository\TranslationRepository;
 
