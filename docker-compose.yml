@@ -8,28 +8,36 @@ services:
     container_name: setup_web
     restart: always
     ports:
-      - 80:80
+      - 8001:80
     volumes:
       - ./docker/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
 
   app:
     build:
       dockerfile: ./docker/php/Dockerfile
+      target: app
     container_name: setup_php
     restart: always
     working_dir: /var/www
+    environment:
+      MYSQL_PORT: ${MYSQL_PORT}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
 
   db:
-    image: mysql:8.1.0
+    image: mysql:8.0
     container_name: setup_db
     volumes:
       - mysqldata:/var/lib/mysql
     restart: unless-stopped # TODO set to "always"
     environment:
-      MYSQL_ROOT_PASSWORD: secret
-      MYSQL_USER: user
-      MYSQL_PASSWORD: secret
-      MYSQL_DATABASE: docker-setup
+      MYSQL_PORT: ${MYSQL_PORT}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
 
 volumes:
   mysqldata:
