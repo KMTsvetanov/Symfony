@@ -13,7 +13,7 @@ jobs:
         run: composer install --prefer-dist
       - name: Run Tests
         working-directory: ./app
-        run: composer run-phpunit
+        run: composer run-phpunit tests
       - run: docker build --target app -t kmtsvetanov/php-composer:1.2 -f ./docker/php/Dockerfile .
       - run: docker build -t kmtsvetanov/nginx-php:1.0 -f ./docker/nginx/Dockerfile .
       - run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
