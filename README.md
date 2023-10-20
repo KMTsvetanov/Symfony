@@ -20,6 +20,14 @@ Setup
   
   ``XDEBUG_MODE=debug bash ./bin/dev-mode.sh -d``
 
+> [!IMPORTANT] PHP Storm -> Settings -> Languages & Frameworks -> PHP -> Set "CLI Interpreter"
+> 
+> Pick "Docker" 
+> 
+> Image name: "kmtsvetanov/php-composer:1.2"
+> 
+>  This will use php 8.2.11
+
 > [!IMPORTANT] DB init is in ./docker/db/dump.sql
 
 Useful Info
