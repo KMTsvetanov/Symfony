@@ -1,51 +1,38 @@
 # Docker - PHP
 
-[Docker PHP][1] is a **Docker and PHP** repository
+[Github][1] [Docker][2] is a **Docker and PHP** repository
 
 
 Setup
 ------------
 
-* For a standard build / setup, simply run
-``docker compose up -d ``
+* For a standard build / setup
   
+  ``docker compose up -d ``
 
-* For a development build / setup, simply run
-``bash ./bin/dev-mode.sh``
+* For a development build / setup
+
+  ``bash ./bin/dev-mode.sh -d``
+
+* For a development build / setup with XDEBUG
   
-``XDEBUG_MODE=debug bash ./bin/dev-mode.sh -d``
-  
-``docker compose -f docker-compose.dev.yml up``
-  
-
-`` TODO docker compose -f docker-compose.dev.yml --env-file .env.local up --build -d``
-
-
-
-
+  ``XDEBUG_MODE=debug bash ./bin/dev-mode.sh -d``
 
 Useful Info
 ------------
-* For installing Docker Desktop on Windows if you wish to use another directory (C: is full)
-  ``start /w "" "Docker Desktop Installer.exe" install -accept-license --installation-dir="D:\WORK\DOCKER-VIRTUAL\Docker" --wsl-default-data-root="D:\WORK\DOCKER-VIRTUAL\wsl" --windows-containers-default-data-root="D:\WORK\DOCKER-VIRTUAL"``
-
-
-* Create Images for Prod:
+* For installing Docker Desktop on Windows if you wish to use another directory (C: is full) in cmd:
   
-  ``docker login -u <<username>>`` 
+  *
+    ``start /w "" "Docker Desktop Installer.exe" install -accept-license --installation-dir="D:\WORK\DOCKER-VIRTUAL\Docker" --wsl-default-data-root="D:\WORK\DOCKER-VIRTUAL\wsl" --windows-containers-default-data-root="D:\WORK\DOCKER-VIRTUAL"``
 
-  ``docker build --target app -t <<username>>/php-composer:1.0 -f ./docker/php/Dockerfile .``
+
+* Create Images for Prod and store them in DockerHub:
   
-  ``docker build --target app -t <<username>>/nginx-php:1.0 -f ./docker/nginx/Dockerfile .``
-
-  ``docker compose -f --target app -t <<username>>/php-composer:1.0 -f ./docker/php/Dockerfile .``
-  
-  ``docker compose -f --target app -t <<username>>/nginx-php:1.0 -f ./docker/nginx/Dockerfile .``
-
-  ``docker push <<username>>/php-composer:1.0``
-  
-  ``docker push <<username>>/nginx-php:1.0``
-
+  * ``docker login -u <<username>>`` 
+  * ``docker build --target app -t <<username>>/php-composer:1.0 -f ./docker/php/Dockerfile .``
+  * ``docker build -t <<username>>/nginx-php:1.0 -f ./docker/nginx/Dockerfile .`` 
+  * ``docker push <<username>>/php-composer:1.0`` 
+  * ``docker push <<username>>/nginx-php:1.0`` 
 
 
 On merge into main we want to:
@@ -60,5 +47,6 @@ On merge into main we want to:
 
 
 [1]: https://github.com/KMTsvetanov/Setup
+[2]: https://hub.docker.com/search?q=kmtsvetanov%2F
 
 

@@ -2,14 +2,9 @@
 
 declare(strict_types=1);
 
-//xdebug_info();die;
-//phpinfo();die;
-
 use App\Repository\TranslationRepository;
 
 require_once dirname(__DIR__) . '/vendor/autoload.php';
-
-$asd = 'd';
 
 $client = \Symfony\Component\Cache\Adapter\RedisAdapter::createConnection(
     "redis://{$_ENV['REDIS_HOST']}:{$_ENV['REDIS_PORT']}"
