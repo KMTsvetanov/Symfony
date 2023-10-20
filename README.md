@@ -5,6 +5,8 @@
 
 Setup
 ------------
+* ``composer install --ignore-platform-reqs --working-dir=./app``
+
 
 * For a standard build / setup
   
@@ -17,6 +19,8 @@ Setup
 * For a development build / setup with XDEBUG
   
   ``XDEBUG_MODE=debug bash ./bin/dev-mode.sh -d``
+
+> [!IMPORTANT] DB init is in ./docker/db/dump.sql
 
 Useful Info
 ------------
