@@ -11,6 +11,10 @@ Setup
   
 
 * For a development build / setup, simply run
+``bash ./bin/dev-mode.sh``
+  
+``XDEBUG_MODE=debug bash ./bin/dev-mode.sh -d``
+  
 ``docker compose -f docker-compose.dev.yml up``
   
 
@@ -26,21 +30,21 @@ Useful Info
   ``start /w "" "Docker Desktop Installer.exe" install -accept-license --installation-dir="D:\WORK\DOCKER-VIRTUAL\Docker" --wsl-default-data-root="D:\WORK\DOCKER-VIRTUAL\wsl" --windows-containers-default-data-root="D:\WORK\DOCKER-VIRTUAL"``
 
 
-* Create an Image for Prod:
+* Create Images for Prod:
   
   ``docker login -u <<username>>`` 
 
-
-* Create an Image for Prod:
-
   ``docker build --target app -t <<username>>/php-composer:1.0 -f ./docker/php/Dockerfile .``
+  
+  ``docker build --target app -t <<username>>/nginx-php:1.0 -f ./docker/nginx/Dockerfile .``
 
+  ``docker compose -f --target app -t <<username>>/php-composer:1.0 -f ./docker/php/Dockerfile .``
+  
+  ``docker compose -f --target app -t <<username>>/nginx-php:1.0 -f ./docker/nginx/Dockerfile .``
 
-* Push to DockerHub
-
-  ``docker push kmtsvetanov/php-composer:1.0``
-
-
+  ``docker push <<username>>/php-composer:1.0``
+  
+  ``docker push <<username>>/nginx-php:1.0``
 
 
 
@@ -52,7 +56,7 @@ On merge into main we want to:
 * Push our built images to the registry
 
 
-* irl we would then deploy our code to whatever cloud service we use
+* Irl we would then deploy our code to whatever cloud service we use
 
 
 [1]: https://github.com/KMTsvetanov/Setup
