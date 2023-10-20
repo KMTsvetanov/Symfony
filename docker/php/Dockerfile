@@ -6,8 +6,21 @@ COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr
 # Install php extensions
 # exit on errors, exit on unset variables, print every command as it is executed
 RUN set -eux; \
-    install-php-extensions pdo pdo_mysql;
+    install-php-extensions \
+        pdo \
+        pdo_mysql \
+        intl \
+        zip \
+        apcu \
+        opcache
 
+RUN apk add --no-cache \
+        bash \
+        acl \
+        fcgi \
+        file \
+        gettext \
+        git
 
 # allow super user - set this if you use Composer as a
 # super user at all times like in docker containers
@@ -50,3 +63,6 @@ RUN echo "zend_extension=$(find /usr/local/lib/php/extensions/ -name xdebug.so)"
 # Install xdebug
 RUN set -eux; \
 	install-php-extensions xdebug-3.2.2
+
+RUN curl -sS https://get.symfony.com/cli/installer | bash
+RUN mv /root/.symfony*/bin/symfony /usr/local/bin/symfony
