@@ -45,6 +45,12 @@ Useful Info
   * ``docker build -t <<username>>/nginx-php:1.0 -f ./docker/nginx/Dockerfile .`` 
   * ``docker push <<username>>/php-composer:1.0`` 
   * ``docker push <<username>>/nginx-php:1.0`` 
+  
+  * ``docker login -u kmtsvetanov`` 
+  * ``docker build --target app -t kmtsvetanov/php-composer:1.0 -f ./docker/php/Dockerfile .``
+  * ``docker build -t kmtsvetanov/nginx-php:1.0 -f ./docker/nginx/Dockerfile .`` 
+  * ``docker push kmtsvetanov/php-composer:1.0`` 
+  * ``docker push kmtsvetanov/nginx-php:1.0`` 
 
 
 On merge into main we want to:
