@@ -53,6 +53,9 @@ Useful Info
   * ``docker push kmtsvetanov/nginx-php:1.0`` 
 
 
+* We checked if our environment can run symfony (run inside `setup-app`)
+  * ``symfony check:requirements``
+
 On merge into main we want to:
 ------------
 * Run the tests
