@@ -60,6 +60,10 @@ Useful Info
 * [Install Symfony][4]
   * ``composer create-project symfony/skeleton:"6.3.*" my_project_directory``
 
+* Symfony commands
+  * ``symfony console make:controller MoviesController`` - Create a controller
+  * ``symfony console debug:router`` - Show all routs
+
 On merge into main we want to:
 ------------
 * Run the tests
