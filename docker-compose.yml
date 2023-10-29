@@ -6,7 +6,7 @@ services:
     container_name: web
     image: kmtsvetanov/symfony-nginx-php:1.0
     ports:
-      - 80:80
+      - "80:80"
 
   app:
     container_name: app
