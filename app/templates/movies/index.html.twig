@@ -10,7 +10,27 @@
 
 <div class="example-wrapper">
     <h1>Hello {{ controller_name }}! ✅</h1>
-    <h2>This is the movie name "{{ movie_name}}"</h2>
+    {% if movie_name %}
+        <h2>This is the movie name "{{ movie_name}}"</h2>
+    {% else %}
+        <h2>There is no movie name!</h2>
+    {% endif %}
+
+    {% for movie in movies %}
+        <li>{{ movie }}</li>
+    {% endfor %}
+
+    <br>
+
+    {% for movie in movies %}
+        <li>{# movie #}</li>
+    {% endfor %}
+
+    <br>
+
+    {{ author }}
+
+    <br>
 
     This friendly message is coming from:
     <ul>

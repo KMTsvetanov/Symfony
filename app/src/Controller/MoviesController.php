@@ -14,6 +14,10 @@ class MoviesController extends AbstractController
         return $this->render('movies/index.html.twig', [
             'controller_name' => 'MoviesController',
             'movie_name' => $name,
+            'movies' => [
+                'Movie 1',
+                'Movie 2',
+            ],
         ]);
     }
 }
