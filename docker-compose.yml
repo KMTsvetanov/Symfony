@@ -3,11 +3,13 @@ version: '3.8'
 services:
 
   web:
+    container_name: web
     image: kmtsvetanov/symfony-nginx-php:1.0
     ports:
       - 80:80
 
   app:
+    container_name: app
     image: kmtsvetanov/symfony-php-composer:1.0
     working_dir: /var/www
     environment:
@@ -25,6 +27,7 @@ services:
       - host.docker.internal:host-gateway
 
   db:
+    container_name: db
     image: mysql:8.0
     volumes:
       - mysqldata:/var/lib/mysql
@@ -36,6 +39,7 @@ services:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
 
   cache:
+    container_name: cache
     image: redis:latest
 
 volumes:

@@ -24,7 +24,7 @@ Setup
 > 
 > Pick "Docker" 
 > 
-> Image name: "kmtsvetanov/php-composer:1.2"
+> Image name: "kmtsvetanov/php-composer:1.0"
 > 
 >  This will use php 8.2.11
 

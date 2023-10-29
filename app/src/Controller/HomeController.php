@@ -11,7 +11,6 @@ class HomeController extends AbstractController
     #[Route('/', name: 'homepage')]
     public function home(): Response
     {
-        $asd = 'ddd';
-        return new Response('Hello World!!!');
+        return new Response('Hello World!');
     }
 }
