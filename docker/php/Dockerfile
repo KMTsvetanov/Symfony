@@ -43,8 +43,7 @@ RUN rm -rf ./html
 COPY ./app/composer.* ./
 
 # install
-RUN composer install
-# --prefer-dist --no-dev --no-scripts --no-progress --no-interaction #--no-scripts
+RUN composer install --prefer-dist --no-dev --no-scripts --no-progress --no-interaction #--no-scripts
 
 # copy application files to the working directory
 COPY ./app .
