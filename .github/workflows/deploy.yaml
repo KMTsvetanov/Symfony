@@ -14,8 +14,8 @@ jobs:
       - name: Run Tests
         working-directory: ./app
         run: composer run-phpunit tests
-      - run: docker build --target app -t kmtsvetanov/php-composer:1.2 -f ./docker/php/Dockerfile .
-      - run: docker build -t kmtsvetanov/nginx-php:1.0 -f ./docker/nginx/Dockerfile .
+      - run: docker build --target app -t kmtsvetanov/symfony-php-composer:1.0 -f ./docker/php/Dockerfile .
+      - run: docker build -t kmtsvetanov/symfony-nginx-php:1.0 -f ./docker/nginx/Dockerfile .
       - run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-      - run: docker push kmtsvetanov/php-composer:1.2
-      - run: docker push kmtsvetanov/nginx-php:1.0
+      - run: docker push kmtsvetanov/symfony-php-composer:1.0
+      - run: docker push kmtsvetanov/symfony-nginx-php:1.0
