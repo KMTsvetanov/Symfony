@@ -20,7 +20,8 @@ RUN apk add --no-cache \
         fcgi \
         file \
         gettext \
-        git
+        git \
+        nano
 
 # allow super user - set this if you use Composer as a
 # super user at all times like in docker containers
@@ -28,7 +29,7 @@ ENV COMPOSER_ALLOW_SUPERUSER=1
 
 
 # obtain composer using multi-stage build
-COPY --from=composer:2.4 /usr/bin/composer /usr/bin/composer
+COPY --from=composer:2.6 /usr/bin/composer /usr/bin/composer
 
 
 WORKDIR /var/www
@@ -42,7 +43,8 @@ RUN rm -rf ./html
 COPY ./app/composer.* ./
 
 # install
-RUN composer install --prefer-dist --no-dev --no-scripts --no-progress --no-interaction
+RUN composer install
+# --prefer-dist --no-dev --no-scripts --no-progress --no-interaction #--no-scripts
 
 # copy application files to the working directory
 COPY ./app .

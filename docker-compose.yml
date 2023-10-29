@@ -3,12 +3,12 @@ version: '3.8'
 services:
 
   web:
-    image: kmtsvetanov/nginx-php:1.0
+    image: kmtsvetanov/symfony-nginx-php:1.0
     ports:
       - 80:80
 
   app:
-    image: kmtsvetanov/php-composer:1.2
+    image: kmtsvetanov/symfony-php-composer:1.0
     working_dir: /var/www
     environment:
       XDEBUG_MODE: "${XDEBUG_MODE:-off}"

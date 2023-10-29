@@ -41,20 +41,24 @@ Useful Info
 * Create Images for Prod and store them in DockerHub:
   
   * ``docker login -u <<username>>`` 
-  * ``docker build --target app -t <<username>>/php-composer:1.0 -f ./docker/php/Dockerfile .``
-  * ``docker build -t <<username>>/nginx-php:1.0 -f ./docker/nginx/Dockerfile .`` 
-  * ``docker push <<username>>/php-composer:1.0`` 
-  * ``docker push <<username>>/nginx-php:1.0`` 
+  * ``docker build --target app -t <<username>>/symfony-php-composer:1.0 -f ./docker/php/Dockerfile .``
+  * ``docker build -t <<username>>/symfony-nginx-php:1.0 -f ./docker/nginx/Dockerfile .`` 
+  * ``docker push <<username>>/symfony-php-composer:1.0`` 
+  * ``docker push <<username>>/symfony-nginx-php:1.0`` 
   
   * ``docker login -u kmtsvetanov`` 
-  * ``docker build --target app -t kmtsvetanov/php-composer:1.0 -f ./docker/php/Dockerfile .``
-  * ``docker build -t kmtsvetanov/nginx-php:1.0 -f ./docker/nginx/Dockerfile .`` 
-  * ``docker push kmtsvetanov/php-composer:1.0`` 
-  * ``docker push kmtsvetanov/nginx-php:1.0`` 
+  * ``docker build --target app -t kmtsvetanov/symfony-php-composer:1.0 -f ./docker/php/Dockerfile .``
+  * ``docker build -t kmtsvetanov/symfony-nginx-php:1.0 -f ./docker/nginx/Dockerfile .`` 
+  * ``docker push kmtsvetanov/symfony-php-composer:1.0`` 
+  * ``docker push kmtsvetanov/symfony-nginx-php:1.0`` 
 
 
-* We checked if our environment can run symfony (run inside `setup-app`)
+* We checked if our [environment can run symfony][3] (run inside `setup-app`)
   * ``symfony check:requirements``
+
+
+* [Install Symfony][4]
+  * ``composer create-project symfony/skeleton:"6.3.*" my_project_directory``
 
 On merge into main we want to:
 ------------
@@ -69,5 +73,7 @@ On merge into main we want to:
 
 [1]: https://github.com/KMTsvetanov/Setup
 [2]: https://hub.docker.com/search?q=kmtsvetanov%2F
+[3]: https://symfony.com/doc/current/setup.html#technical-requirements
+[4]: https://symfony.com/doc/current/setup.html#creating-symfony-applications
 
 
