@@ -5,8 +5,6 @@
 
 Setup
 ------------
-* ``composer install --ignore-platform-reqs --working-dir=./app``
-
 
 * For a standard build / setup
   
@@ -17,8 +15,19 @@ Setup
   ``bash ./bin/dev-mode.sh -d``
 
 * For a development build / setup with XDEBUG
-  
+
   ``XDEBUG_MODE=debug bash ./bin/dev-mode.sh -d``
+
+
+* Run Composer install to populate vendor folder
+  * ``docker exec app composer install``
+  * ``composer install --ignore-platform-reqs --working-dir=./app``
+
+
+* Populate the Database
+  * ``docker exec -it app sh`` 
+  * ``symfony console doctrine:fixtures:load`` 
+
 
 > [!IMPORTANT] PHP Storm -> Settings -> Languages & Frameworks -> PHP -> Set "CLI Interpreter"
 > 
@@ -60,6 +69,9 @@ Useful Info
 * [Install Symfony][4]
   * ``composer create-project symfony/skeleton:"6.3.*" my_project_directory``
 
+<h4>General commands</h4>
+  * ``docker exec app bin/console cache:clear`` - Clear the cache in a Symfony application
+
 <h3>Useful Symfony commands </h3>
 
   * ``symfony console make:controller MoviesController`` - Create a controller
@@ -68,22 +80,26 @@ Useful Info
   * ``symfony console make:entity Movie`` - Create/Edit Entity and Repository
     * Check comments 
   
-[//]: # (  Movie - Actor --- ManyToMany  ) - Many 'Movies' have many 'Actors' - Many 'Actors' start in many 'Movies'
+[//]: # (  Movie - Actor --- ManyToMany  - Many 'Movies' have many 'Actors' - Many 'Actors' start in many 'Movies' )
 [//]: # (  ``symfony console make:entity Actor`` - Create Entity and Repository)
 [//]: # (  ``symfony console make:entity Movie`` -  New property "actors"  One movie - Many Actors | One Actor - Many Movies )
 [//]: # ( - actors)
 [//]: # ( - ManyToMany)
 [//]: # ( - Actor)
 [//]: # ( - yes)
-[//]: # ( - movies)  
-
-[//]: # (  Student  - Project --- ManyToOne  ) - Many 'Students' are working on one school 'Project' | One 'Project' has many 'Students' that work on the project
-[//]: # (  Country  - States  --- OneToMany  ) - One 'Country' has many 'States' | One 'State' is located in only one 'Country'
-[//]: # (  Person   - Heart   --- OneToOne  ) - One 'Person' has one 'Heart' | One 'Heart' inside the body of one 'Person'
+[//]: # ( - movies)
+[//]: # ([//]: # &#40;  Student  - Project --- ManyToOne  &#41; - Many 'Students' are working on one school 'Project' | One 'Project' has many 'Students' that work on the project)
+[//]: # ([//]: # &#40;  Country  - States  --- OneToMany  &#41; - One 'Country' has many 'States' | One 'State' is located in only one 'Country')
+[//]: # ([//]: # &#40;  Person   - Heart   --- OneToOne  &#41; - One 'Person' has one 'Heart' | One 'Heart' inside the body of one 'Person')
 
   * ``symfony console make:migration`` - Create Migration
   * ``symfony console doctrine:migrations:migrate`` - Run Migration
   * ``symfony console doctrine:migrations:migrate prev`` - Roll back the last migration
+
+<h4>Fixtures - Load Dummy Data Fixtures </h4> 
+  * ``docker exec app composer require --dev doctrine/doctrine-fixtures-bundle``
+  * ``symfony console doctrine:fixtures:load`` - database will be purged and populated
+    
 
 On merge into main we want to:
 ------------
