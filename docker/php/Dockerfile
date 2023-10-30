@@ -1,5 +1,9 @@
 FROM php:8.2.11-fpm-alpine as app
 
+# Set the umask to allow 777 permissions for all new files
+RUN echo "umask 000" >> /etc/profile
+
+
 # Useful PHP extension installer image, copy binary into your container
 COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/local/bin/
 

@@ -60,9 +60,30 @@ Useful Info
 * [Install Symfony][4]
   * ``composer create-project symfony/skeleton:"6.3.*" my_project_directory``
 
-* Symfony commands
+<h3>Useful Symfony commands </h3>
+
   * ``symfony console make:controller MoviesController`` - Create a controller
-  * ``symfony console debug:router`` - Show all routs
+  * ``symfony console debug:router`` - Show all routes
+  * ``symfony console doctrine:database:create`` - Create a database
+  * ``symfony console make:entity Movie`` - Create/Edit Entity and Repository
+    * Check comments 
+  
+[//]: # (  Movie - Actor --- ManyToMany  ) - Many 'Movies' have many 'Actors' - Many 'Actors' start in many 'Movies'
+[//]: # (  ``symfony console make:entity Actor`` - Create Entity and Repository)
+[//]: # (  ``symfony console make:entity Movie`` -  New property "actors"  One movie - Many Actors | One Actor - Many Movies )
+[//]: # ( - actors)
+[//]: # ( - ManyToMany)
+[//]: # ( - Actor)
+[//]: # ( - yes)
+[//]: # ( - movies)  
+
+[//]: # (  Student  - Project --- ManyToOne  ) - Many 'Students' are working on one school 'Project' | One 'Project' has many 'Students' that work on the project
+[//]: # (  Country  - States  --- OneToMany  ) - One 'Country' has many 'States' | One 'State' is located in only one 'Country'
+[//]: # (  Person   - Heart   --- OneToOne  ) - One 'Person' has one 'Heart' | One 'Heart' inside the body of one 'Person'
+
+  * ``symfony console make:migration`` - Create Migration
+  * ``symfony console doctrine:migrations:migrate`` - Run Migration
+  * ``symfony console doctrine:migrations:migrate prev`` - Roll back the last migration
 
 On merge into main we want to:
 ------------
