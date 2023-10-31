@@ -35,6 +35,10 @@ ENV COMPOSER_ALLOW_SUPERUSER=1
 # obtain composer using multi-stage build
 COPY --from=composer:2.6 /usr/bin/composer /usr/bin/composer
 
+# Node.js and yarn packages
+RUN apk add --no-cache \
+    nodejs \
+    yarn
 
 WORKDIR /var/www
 

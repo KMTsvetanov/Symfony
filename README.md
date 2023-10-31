@@ -5,6 +5,7 @@
 
 Setup
 ------------
+asdf
 
 * For a standard build / setup
   
@@ -17,6 +18,14 @@ Setup
 * For a development build / setup with XDEBUG
 
   ``XDEBUG_MODE=debug bash ./bin/dev-mode.sh -d``
+  > [!IMPORTANT - Low End PC problems]
+  > Low memory can indeed cause issues during Docker builds, especially if you're trying to build images 
+  > that require a significant amount of memory. When your system runs out of memory, it can lead to 
+  > build failures, errors, or unexpected interruptions.
+  > 
+  > `/vendor` and `/node_modules` can get too big to copy
+  > 
+  > >Workaround is to comment ``COPY ./app`` . all related to ``RUN composer`` in docker\php\Dockerfile and do it step by step another way
 
 
 * Run Composer install to populate vendor folder
@@ -96,10 +105,14 @@ Useful Info
   * ``symfony console doctrine:migrations:migrate`` - Run Migration
   * ``symfony console doctrine:migrations:migrate prev`` - Roll back the last migration
 
-<h4>Fixtures - Load Dummy Data Fixtures </h4> 
+<h4>Fixtures - Load Dummy Data Fixtures</h4> 
   * ``docker exec app composer require --dev doctrine/doctrine-fixtures-bundle``
-  * ``symfony console doctrine:fixtures:load`` - database will be purged and populated
-    
+  * ``symfony console doctrine:fixtures:load`` - Database will be purged and populated
+
+<h4>Compile Assets in Symfony (node + yarn)</h4> (inside 'app' container)
+  * ``composer require webpack`` - Will install symfony/webpack-encore-bundle
+  * ``yarn install`` - Will the dependencies inside package.json
+  * ``yarn encore dev`` - Compile Assets (css/js changes inside /public/build)
 
 On merge into main we want to:
 ------------
@@ -112,8 +125,8 @@ On merge into main we want to:
 * Irl we would then deploy our code to whatever cloud service we use
 
 
-[1]: https://github.com/KMTsvetanov/Setup
-[2]: https://hub.docker.com/search?q=kmtsvetanov%2F
+[1]: https://github.com/KMTsvetanov/Symfony
+[2]: https://hub.docker.com/search?q=kmtsvetanov%2Fsymfony
 [3]: https://symfony.com/doc/current/setup.html#technical-requirements
 [4]: https://symfony.com/doc/current/setup.html#creating-symfony-applications
 
