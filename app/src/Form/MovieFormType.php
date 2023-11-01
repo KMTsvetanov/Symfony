@@ -21,29 +21,32 @@ class MovieFormType extends AbstractType
                     'class' => 'class1 class2',
                     'placeholder' => 'Enter Title...',
                 ],
-                'label' => false
+                'label' => false,
+                'required' => false,
             ])
             ->add('releaseYear', IntegerType::class, [
                 'attr' => [
                     'class' => 'class3 class4',
                     'placeholder' => 'Enter Release Year...',
                 ],
-                'label' => false
+                'label' => false,
+                'required' => false,
             ])
             ->add('description', TextareaType::class, [
                 'attr' => [
                     'class' => 'class5 class6',
                     'placeholder' => 'Enter Description...',
                 ],
-                'label' => false
+                'label' => false,
+                'required' => false,
             ])
             ->add('imagePath', FileType::class, [
-                'required' => false,
-                'mapped' => false,
+                'mapped' => $options['imagePathMapped'],
                 'attr' => [
                     'class' => 'class7 class8',
                 ],
-                'label' => false
+                'label' => false,
+                'required' => false,
             ])
 //            ->add('actors')
         ;
@@ -53,6 +56,7 @@ class MovieFormType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Movie::class,
+            'imagePathMapped' => true,
         ]);
     }
 }

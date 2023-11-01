@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Entity\Movie;
 use App\Form\MovieFormType;
-use App\Repository\MovieRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -103,7 +102,7 @@ class MoviesController extends AbstractController
         $movieRepository = $this->entityManager->getRepository(Movie::class);
         $movie = $movieRepository->find($id);
 
-        $form = $this->createForm(MovieFormType::class, $movie);
+        $form = $this->createForm(MovieFormType::class, $movie, ['imagePathMapped' => false]);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
