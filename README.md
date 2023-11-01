@@ -6,19 +6,11 @@
 Setup
 ------------
 
-* For a standard build / setup
+* Run Docker Containers
   
-  ``docker compose up -d ``
-
-
-* For a development build / setup
-
-  ``bash ./bin/dev-mode.sh -d``
-
-
-* For a development build / setup with XDEBUG
-  
-  ``XDEBUG_MODE=debug bash ./bin/dev-mode.sh -d {--build}``
+  * ``docker compose up -d `` - For a standard build / setu
+  * ``bash ./bin/dev-mode.sh -d`` - For a development build / setup
+  * ``{XDEBUG_MODE=debug} bash ./bin/dev-mode.sh -d {--build}`` - For a development build / setup with XDEBUG
 
 
 * Run Composer install to populate vendor folder
@@ -26,6 +18,15 @@ Setup
   ``docker exec app composer install`` 
 
 [//]: # (  * ``composer install --ignore-platform-reqs --working-dir=./app``)
+
+* Install the dependencies inside package.json
+  
+  ``docker exec app yarn install``
+
+
+* Compile Assets (css/js changes inside /public/build)
+
+  ``docker exec app yarn encore dev``
 
 
 * Run Migration
