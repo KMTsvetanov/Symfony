@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MoviesController!{% endblock %}
+
+{% block body %}
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
+
+    <div class="example-wrapper">
+        {% if movie %}
+            <h1>Title: {{ movie.getTitle() }}</h1>
+            <img src="{{ movie.getImagePath() }}" alt="">
+            <p>Release Year : {{ movie.getReleaseYear() }}</p>
+            <p>Description: {{ movie.getDescription() }}</p>
+            {% if movie.getActors() %}
+                {% for actor in movie.getActors() %}
+                    <li>Actor: {{ actor.getName() }}</li>
+                {% endfor %}
+            {% else %}
+                <p>There is no Actors in the database!</p>
+            {% endif %}
+            <a href="/movies/edit/{{ movie.getId() }}">Edit Movie</a>
+            <br>
+            <a href="/movies/delete/{{ movie.getId() }}">Delete Movie</a>
+            <br>
+        {% else %}
+            <p>There is no Movie with that id in the database!</p>
+        {% endif %}
+        <a href="/movies">Back to Movies</a>
+    </div>
+{% endblock %}

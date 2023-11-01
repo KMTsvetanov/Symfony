@@ -114,8 +114,9 @@ Useful Info
   * ``yarn install`` - Will the dependencies inside package.json
   * ``yarn encore dev`` - Compile Assets (css/js changes inside /public/build)
 
-
-* ``npm install file-loader --save-dev`` - Compile Assets (css/js changes inside /public/build)
+<h4>Symfony Form class</h4>
+  * ``composer require symfony/form``
+  * ``symfony console make:form MovieFormType Movie`` - created: src/Form/MovieFormType.php + associate the model (Movie) that will use
 
 On merge into main we want to:
 ------------
