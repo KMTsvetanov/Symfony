@@ -15,44 +15,36 @@ Setup
   ``bash ./bin/dev-mode.sh -d``
 
 * For a development build / setup with XDEBUG
-
   ``XDEBUG_MODE=debug bash ./bin/dev-mode.sh -d``
-  > [!IMPORTANT - Low End PC problems]
-  > Low memory can indeed cause issues during Docker builds, especially if you're trying to build images 
-  > that require a significant amount of memory. When your system runs out of memory, it can lead to 
-  > build failures, errors, or unexpected interruptions.
-  > 
-  > `/vendor` and `/node_modules` can get too big to copy
-  > 
-  > >Workaround is to comment ``COPY ./app`` . all related to ``RUN composer`` in docker\php\Dockerfile and do it step by step another way
-
 
 * Run Composer install to populate vendor folder
-  * ``docker exec app composer install``
-  * ``composer install --ignore-platform-reqs --working-dir=./app``
+  * ``docker exec app composer install`` 
 
+[//]: # (  * ``composer install --ignore-platform-reqs --working-dir=./app``)
+
+* Run Migration
+  * ``docker exec app symfony console doctrine:migrations:migrate --no-interaction``
 
 * Populate the Database
-  * ``docker exec -it app sh`` 
-  * ``symfony console doctrine:fixtures:load`` 
+  * ``docker exec app symfony console doctrine:fixtures:load --no-interaction``
 
 
-> [!IMPORTANT] PHP Storm -> Settings -> Languages & Frameworks -> PHP -> Set "CLI Interpreter"
-> 
-> Pick "Docker" 
-> 
-> Image name: "kmtsvetanov/php-composer:1.0"
-> 
->  This will use php 8.2.11
-
-> [!IMPORTANT] DB init is in ./docker/db/dump.sql
 
 Useful Info
 ------------
+
+> [!PHPSTORM] PHP Storm -> Settings -> PHP -> Set "CLI Interpreter"
+> 
+> Pick "Docker" 
+> 
+> Image name: "kmtsvetanov/symfony-php-composer:1.0"
+> 
+>  This will use php 8.2.11
+
+
 * For installing Docker Desktop on Windows if you wish to use another directory (C: is full) in cmd:
   
-  *
-    ``start /w "" "Docker Desktop Installer.exe" install -accept-license --installation-dir="D:\WORK\DOCKER-VIRTUAL\Docker" --wsl-default-data-root="D:\WORK\DOCKER-VIRTUAL\wsl" --windows-containers-default-data-root="D:\WORK\DOCKER-VIRTUAL"``
+  * ``start /w "" "Docker Desktop Installer.exe" install -accept-license --installation-dir="D:\WORK\DOCKER-VIRTUAL\Docker" --wsl-default-data-root="D:\WORK\DOCKER-VIRTUAL\wsl" --windows-containers-default-data-root="D:\WORK\DOCKER-VIRTUAL"``
 
 
 * Create Images for Prod and store them in DockerHub:
@@ -112,6 +104,9 @@ Useful Info
   * ``composer require webpack`` - Will install symfony/webpack-encore-bundle
   * ``yarn install`` - Will the dependencies inside package.json
   * ``yarn encore dev`` - Compile Assets (css/js changes inside /public/build)
+
+
+* ``npm install file-loader --save-dev`` - Compile Assets (css/js changes inside /public/build)
 
 On merge into main we want to:
 ------------

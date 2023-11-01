@@ -1,0 +1,5 @@
+.git
+.dockerignore
+app/vendor/
+app/node_modules/
+app/var/log/
