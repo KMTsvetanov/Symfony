@@ -10,20 +10,10 @@
 
 <div class="example-wrapper">
     <h1>Hello {{ controller_name }}! ✅</h1>
-    {% if movie_name %}
-        <h2>This is the movie name "{{ movie_name}}"</h2>
-    {% else %}
-        <h2>There is no movie name!</h2>
-    {% endif %}
-
+    <a href="/movies/create">Create</a>
+    <h2>Movies {{ movies|length }}</h2>
     {% for movie in movies %}
-        <li>{{ movie }}</li>
-    {% endfor %}
-
-    <br>
-
-    {% for movie in movies %}
-        <li>{# movie #}</li>
+        <li>{{ movie.getTitle() }} <a href="/movies/{{ movie.getId() }}">Read More</a></li>
     {% endfor %}
 
     <br>
