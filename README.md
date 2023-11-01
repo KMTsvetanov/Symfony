@@ -10,24 +10,32 @@ Setup
   
   ``docker compose up -d ``
 
+
 * For a development build / setup
 
   ``bash ./bin/dev-mode.sh -d``
 
+
 * For a development build / setup with XDEBUG
-  ``XDEBUG_MODE=debug bash ./bin/dev-mode.sh -d``
+  
+  ``XDEBUG_MODE=debug bash ./bin/dev-mode.sh -d {--build}``
+
 
 * Run Composer install to populate vendor folder
-  * ``docker exec app composer install`` 
+  
+  ``docker exec app composer install`` 
 
 [//]: # (  * ``composer install --ignore-platform-reqs --working-dir=./app``)
 
+
 * Run Migration
-  * ``docker exec app symfony console doctrine:migrations:migrate --no-interaction``
+
+  ``docker exec app symfony console doctrine:migrations:migrate --no-interaction``
+
 
 * Populate the Database
-  * ``docker exec app symfony console doctrine:fixtures:load --no-interaction``
-
+ 
+  ``docker exec app symfony console doctrine:fixtures:load --no-interaction``
 
 
 Useful Info

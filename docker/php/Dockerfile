@@ -59,6 +59,9 @@ COPY ./app .
 # run composer dump-autoload --optimize
 RUN composer dump-autoload --optimize
 
+RUN curl -sS https://get.symfony.com/cli/installer | bash
+RUN mv /root/.symfony*/bin/symfony /usr/local/bin/symfony
+
 FROM app as app_dev
 
 # Xdebug has different modes / functionalities. We can default to 'off' and set to 'debug'
@@ -72,6 +75,3 @@ RUN echo "zend_extension=$(find /usr/local/lib/php/extensions/ -name xdebug.so)"
 # Install xdebug
 RUN set -eux; \
 	install-php-extensions xdebug-3.2.2
-
-RUN curl -sS https://get.symfony.com/cli/installer | bash
-RUN mv /root/.symfony*/bin/symfony /usr/local/bin/symfony
