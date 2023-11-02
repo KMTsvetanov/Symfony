@@ -4,11 +4,13 @@ namespace App\Controller;
 
 use App\Entity\Movie;
 use App\Form\MovieFormType;
+use App\Message\ProcessTaskMessage;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 class MoviesController extends AbstractController
@@ -84,10 +86,14 @@ class MoviesController extends AbstractController
     }
 
     #[Route('/movies/{id}', requirements: ["id" => "\d+"], methods: ['GET'])]
-    public function show($id): Response
+    public function show($id, MessageBusInterface $bus): Response
     {
         $movieRepository = $this->entityManager->getRepository(Movie::class);
         $movie = $movieRepository->find($id);
+
+        if ($movie) {
+            $bus->dispatch(new ProcessTaskMessage($id));
+        }
 
         return $this->render('movies/show.html.twig', [
             'movie' => $movie,
