@@ -125,6 +125,12 @@ Useful Info
   * ``symfony console make:registration-form`` - Create register form (have  Questions) - yes | no | yes | the redirect route
   * ``symfony console make:auth`` - Create LoginForm (have  Questions) - 1 | LoginFormAuthenticator | SecurityController | yes | no
 
+<h4>Symfony Messenger: Sync & Queued Message Handling</h4>
+  * ``composer require symfony/messenger``
+  * ``symfony console make:message ProcessTaskMessage`` - This will generate a message class, ProcessTaskMessage, in the src/Message | async
+  * ``symfony console debug:messenger`` - To see all the configured handlers, run:
+  * ``symfony console messenger:consume async -vv`` - Consuming Messages (Running the Worker) - (-vv) to see all the configured handlers
+
 On merge into main we want to:
 ------------
 * Run the tests
