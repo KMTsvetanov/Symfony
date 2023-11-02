@@ -1,4 +1,4 @@
-# Docker - PHP
+# Docker - PHP - Laravel Project For Basic Functionality
 
 [Github][1] [Docker][2] is a **Docker and PHP** repository
 
@@ -8,7 +8,7 @@ Setup
 
 * Run Docker Containers
   
-  * ``docker compose up -d `` - For a standard build / setu
+  * ``docker compose up -d `` - For a standard build / setup
   * ``bash ./bin/dev-mode.sh -d`` - For a development build / setup
   * ``{XDEBUG_MODE=debug} bash ./bin/dev-mode.sh -d {--build}`` - For a development build / setup with XDEBUG
 
@@ -117,6 +117,13 @@ Useful Info
 <h4>Symfony Form class</h4>
   * ``composer require symfony/form``
   * ``symfony console make:form MovieFormType Movie`` - created: src/Form/MovieFormType.php + associate the model (Movie) that will use
+
+<h4>Symfony User</h4> 
+  * ``symfony console make:user User`` - Create user table (have  Questions) - yes | email | yes
+  * ``symfony console make:migration`` - Create Migration
+  * ``symfony console doctrine:migrations:migrate`` - Run Migration
+  * ``symfony console make:registration-form`` - Create register form (have  Questions) - yes | no | yes | the redirect route
+  * ``symfony console make:auth`` - Create LoginForm (have  Questions) - 1 | LoginFormAuthenticator | SecurityController | yes | no
 
 On merge into main we want to:
 ------------
