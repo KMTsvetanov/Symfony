@@ -10,7 +10,13 @@
 
 <div class="example-wrapper">
     <h1>Hello {{ controller_name }}! ✅</h1>
-    <a href="/movies/create">Create</a>
+    {% if (app.user) %}
+        <p>Hello {{ app.user.email }}</p>
+    {% endif %}
+    <br>
+    {% if app.user %}
+        <a href="/movies/create">Create</a>
+    {% endif %}
     <h2>Movies {{ movies|length }}</h2>
     {% for movie in movies %}
         <li>{{ movie.getTitle() }} <a href="/movies/{{ movie.getId() }}">Read More</a></li>
