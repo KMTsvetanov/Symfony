@@ -131,6 +131,22 @@ Useful Info
   * ``symfony console debug:messenger`` - To see all the configured handlers, run:
   * ``symfony console messenger:consume async -vv`` - Consuming Messages (Running the Worker) - (-vv) to see all the configured handlers
 
+<h4>Symfony microservice</h4>
+<img src="images/012-symfony-microservice.png" alt="Sample Image" width="500" height="400">
+  * ProductsController->lowestPrice
+    * POST request:
+      * Headers
+        * Accept: application/json
+        * Content-Type: application/json
+      * Body: {
+        "quantity": 5,
+        "request_location": "UK",
+        "voucher_code": "0U812",
+        "request_date": "2022-04-04",
+        "product_id": 1
+        }
+
+
 On merge into main we want to:
 ------------
 * Run the tests
