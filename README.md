@@ -135,9 +135,11 @@ Useful Info
 <img src="images/012-symfony-microservice.png" alt="Sample Image" width="500" height="400">
   * ProductsController->lowestPrice
     * POST request:
+      * URL: `http://localhost/products/1/lowest-price?XDEBUG_SESSION_START=PHPSTORM` 
       * Headers
         * Accept: application/json
         * Content-Type: application/json
+        * Force-fail: 500
       * Body: {
         "quantity": 5,
         "request_location": "UK",
@@ -145,6 +147,13 @@ Useful Info
         "request_date": "2022-04-04",
         "product_id": 1
         }
+
+<h4>Entities vs DTOs (Data Transfer Objects)</h4> 
+  * Entities represent the real things in your 
+  application.
+  * DTOs are like data carriers that help you move 
+  data between different parts of your application. They keep things 
+  organized and make sure data arrives where it's supposed to be. 
 
 
 On merge into main we want to:
