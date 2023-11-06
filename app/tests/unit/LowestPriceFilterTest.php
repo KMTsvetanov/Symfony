@@ -3,6 +3,7 @@
 namespace App\Tests\unit;
 
 use App\DTO\LowestPriceEnquiry;
+use App\Entity\Product;
 use App\Entity\Promotion;
 use App\Filter\LowestPriceFilter;
 use App\Tests\ServiceTestCase;
@@ -12,8 +13,13 @@ class LowestPriceFilterTest extends ServiceTestCase
     /** @test */
     public function lowest_price_promotions_filtering_is_applied_correctly(): void
     {
+        $product = new Product();
+        $product->setPrice(100);
+
         // Setup
         $enquiry = new LowestPriceEnquiry();
+        $enquiry->setProduct($product);
+        $enquiry->setQuantity(5);
         $lowestPriceFilter = $this->container->get(LowestPriceFilter::class);
 
         $promotions = $this->promotionsDataProvider();
@@ -23,13 +29,8 @@ class LowestPriceFilterTest extends ServiceTestCase
 
         // Make assertions
         $this->assertSame(100, $filteredEnquiry->getPrice());
-        $this->assertSame(50, $filteredEnquiry->getDiscountedPrice());
+        $this->assertSame(250, $filteredEnquiry->getDiscountedPrice());
         $this->assertSame('Black Friday half price sale', $filteredEnquiry->getPromotionName());
-
-//        $promotionEnquiry->setDiscountedPrice(50);
-//        $promotionEnquiry->setPrice(100);
-//        $promotionEnquiry->setPromotionId(3);
-//        $promotionEnquiry->setPromotionName('Black Friday half price sale');
     }
 
     public function promotionsDataProvider(): array
