@@ -5,6 +5,7 @@ namespace App\DTO;
 class LowestPriceEnquiry implements PromotionEnquiryInterface
 {
     private ?int $quantity;
+    private ?int $productId;
     private ?string $requestLocation;
 
     private ?string $voucherCode;
@@ -97,6 +98,16 @@ class LowestPriceEnquiry implements PromotionEnquiryInterface
     public function setPromotionName(?string $promotionName): void
     {
         $this->promotionName = $promotionName;
+    }
+
+    public function getProductId(): ?int
+    {
+        return $this->productId;
+    }
+
+    public function setProductId(?int $productId): void
+    {
+        $this->productId = $productId;
     }
 
     public function jsonSerialize(): mixed
