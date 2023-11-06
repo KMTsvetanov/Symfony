@@ -155,6 +155,9 @@ Useful Info
   data between different parts of your application. They keep things 
   organized and make sure data arrives where it's supposed to be. 
 
+<h6>Schema</h4>
+<img src="images/012-symfony-microservice_2.png" alt="Sample Image" width="700" height="200">
+
 
 On merge into main we want to:
 ------------
