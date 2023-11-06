@@ -158,8 +158,10 @@ Useful Info
 <h6>Schema</h4>
 <img src="images/012-symfony-microservice_2.png" alt="Sample Image" width="700" height="200">
 
-<h4>Symfony Messenger: Sync & Queued Message Handling</h4>
 * ``composer require doctrine/annotations``
+
+<h4>Tests</h4>
+* ``vendor/bin/phpunit tests/unit/LowestPriceFilterTest.php``
 
 
 On merge into main we want to:
