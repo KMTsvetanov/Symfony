@@ -3,10 +3,12 @@
 namespace App\DTO;
 
 use App\Entity\Product;
+use Symfony\Component\Serializer\Annotation\Ignore;
 
 class LowestPriceEnquiry implements PromotionEnquiryInterface
 {
     private ?int $quantity;
+    #[Ignore]
     private ?Product $product;
     private ?string $requestLocation;
 
