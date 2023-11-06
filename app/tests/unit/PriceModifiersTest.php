@@ -3,10 +3,9 @@
 namespace App\Tests\unit;
 
 use App\DTO\LowestPriceEnquiry;
-use App\Entity\Product;
 use App\Entity\Promotion;
-use App\Filter\LowestPriceFilter;
 use App\Filter\Modifier\DataRangeMultiplier;
+use App\Filter\Modifier\EvenItemsMultiplier;
 use App\Filter\Modifier\FixedPriceVoucher;
 use App\Tests\ServiceTestCase;
 
@@ -34,6 +33,7 @@ class PriceModifiersTest extends ServiceTestCase
         // Make assertions
         $this->assertEquals(250, $modifiedPrice);
     }
+
     /** @test */
     public function FixedPriceVoucher_returns_a_correctly_modified_price(): void
     {
@@ -55,5 +55,28 @@ class PriceModifiersTest extends ServiceTestCase
 
         // Make assertions
         $this->assertEquals(500, $modifiedPrice);
+    }
+
+    /** @test */
+    public function EvenItemsMultiplier_returns_a_correctly_modified_price(): void
+    {
+        // Setup
+        $enquiry = new LowestPriceEnquiry();
+        $enquiry->setQuantity(5);
+
+        $promotion = new Promotion();
+        $promotion->setName('Buy one get one free');
+        $promotion->setAdjustment(0.5);
+        $promotion->setCriteria(['minimum_quantity' => 2]);
+        $promotion->setType('even_items_multiplier');
+
+        $dataRangeModifier = new EvenItemsMultiplier();
+
+        // Do something
+        $modifiedPrice = $dataRangeModifier->modify(100, 5, $promotion, $enquiry);
+
+        // Make assertions
+        // ((100 * 4) * 0.5) + (100 * 1)
+        $this->assertEquals(300, $modifiedPrice);
     }
 }
