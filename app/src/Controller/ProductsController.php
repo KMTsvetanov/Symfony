@@ -3,8 +3,12 @@
 namespace App\Controller;
 
 use App\DTO\LowestPriceEnquiry;
+use App\Entity\Movie;
+use App\Entity\Product;
+use App\Entity\Promotion;
 use App\Filter\PromotionsFilterInterface;
 use App\Serializer\SnakeCaseSerializer;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -14,6 +18,10 @@ use Symfony\Component\Serializer\SerializerInterface;
 
 class ProductsController extends AbstractController
 {
+    public function __construct(private EntityManagerInterface $entityManager )
+    {
+    }
+
     #[Route('/products/{id}/lowest-price', name: 'lowest-price', methods: ['POST'])]
     public function lowestPrice(Request $request, int $id,
 //        SerializerInterface $serializer,
@@ -29,9 +37,23 @@ class ProductsController extends AbstractController
 
         /** @var LowestPriceEnquiry $lowestPriceEnquiry */
         $lowestPriceEnquiry = $serializer->deserialize($request->getContent(), LowestPriceEnquiry::class, 'json');
-        // 2. Pass the Enquiry into a promotions filter
-            // the appropriate promotion will be applied
-        $modifiedEnquiry = $promotionsFilter->apply($lowestPriceEnquiry);
+
+        $productRepository = $this->entityManager->getRepository(Product::class);
+
+        $product = $productRepository->find($id); // add Error handling for not found product
+
+        $lowestPriceEnquiry->setProduct($product);
+
+        $promotionRepository = $this->entityManager->getRepository(Promotion::class);
+
+        $promotions = $promotionRepository->findValidForProduct(
+            $product,
+            date_create_immutable($lowestPriceEnquiry->getRequestDate())
+        );
+
+        dd($promotions);
+
+        $modifiedEnquiry = $promotionsFilter->apply($lowestPriceEnquiry, $promotions);
 
 
         $responseContent = $serializer->serialize($modifiedEnquiry, 'json');
