@@ -13,10 +13,10 @@ class LowestPriceFilterTest extends ServiceTestCase
     /** @test */
     public function lowest_price_promotions_filtering_is_applied_correctly(): void
     {
+        // Setup
         $product = new Product();
         $product->setPrice(100);
 
-        // Setup
         $enquiry = new LowestPriceEnquiry();
         $enquiry->setProduct($product);
         $enquiry->setQuantity(5);

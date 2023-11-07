@@ -20,7 +20,7 @@ class PromotionCache
 
         return $this->cache->get($key, function (ItemInterface $item) use ($product, $requestDate) {
 
-            // Set the cache item to expire in 60 min (in seconds)
+            // Set the cache item to expire in 30 sec
             $item->expiresAfter(30);
 
             // Cache miss

@@ -168,6 +168,18 @@ Useful Info
 * ``symfony console cache:pool:delete cache.app valid-for-product-1`` - Clear an Item out of the cache
 * ``composer require predis/predis`` - Library for helping php work with Redis
 
+<h4>Events vs Symfony Message Handling</h4>
+- Events:
+   - Think of events as "notifications" in your application.
+   - Use events when you want your application to react to things that happen, like sending an email when a user signs up or logging an action.
+   - Events are like a bell that rings when something important happens in your app.
+- Symfony Console's make:message Command:
+   - Imagine you have a "to-do list" for your application.
+   - Use the make:message command to create "tasks" that your application can work on in the background.
+   - It's like writing down tasks on a list, and your application completes them when it has time.
+* ``composer require validator``
+* ``symfony console debug:autowiring EventDispatcher`` - The following classes & interfaces can be used as type-hints when autowiring
+* ``vendor/bin/phpunit tests/unit/DtoSubscriberTest.php``
 
 On merge into main we want to:
 ------------
