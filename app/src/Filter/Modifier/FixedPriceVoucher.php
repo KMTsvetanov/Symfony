@@ -6,7 +6,7 @@ use App\DTO\LowestPriceEnquiry;
 use App\DTO\PromotionEnquiryInterface;
 use App\Entity\Promotion;
 
-class FixedPriceVoucher implements PriceMultiplierInterface
+class FixedPriceVoucher implements PriceModifierInterface
 {
     public function modify(int $price, int $quantity, Promotion $promotion, PromotionEnquiryInterface $enquiry): int
     {

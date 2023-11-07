@@ -6,7 +6,7 @@ use App\DTO\LowestPriceEnquiry;
 use App\DTO\PromotionEnquiryInterface;
 use App\Entity\Promotion;
 
-class DataRangeMultiplier implements PriceMultiplierInterface
+class DataRangeMultiplier implements PriceModifierInterface
 {
     public function modify(int $price, int $quantity, Promotion $promotion, PromotionEnquiryInterface $enquiry): int
     {
