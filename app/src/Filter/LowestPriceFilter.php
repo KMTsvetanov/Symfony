@@ -19,27 +19,27 @@ class LowestPriceFilter implements PromotionsFilterInterface
     {
         /** @var LowestPriceEnquiry $promotionEnquiry */
         $price = $promotionEnquiry->getProduct()->getPrice();
+        $promotionEnquiry->setPrice($price);
         $quantity = $promotionEnquiry->getQuantity();
         $lowestPrice = $quantity * $price;
 
-        // Loop over the promotions
         foreach ($promotions as $promotion) {
-            // Run the promotions' modification logic against the enquiry
-            // 1. Check does the promotion apply e.g. is it in date range / is the voucher code valid?
-            // 2. Apply the price modification to obtain a $modifiedPrice (how?)
+
             $priceModifier = $this->priceModifierFactory->create($promotion->getType());
 
             $modifiedPrice = $priceModifier->modify($price, $quantity, $promotion, $promotionEnquiry);
-            // 3. Check if $modifiedPrice < $lowestPrice
-            // 1. Save the Enquiry properties
-            // 2. Update $lowestPrice
 
-            $promotionEnquiry->setDiscountedPrice(250);
-            $promotionEnquiry->setPrice(100);
-            $promotionEnquiry->setPromotionId(3);
-            $promotionEnquiry->setPromotionName('Black Friday half price sale');
+            if ($modifiedPrice < $lowestPrice) {
+
+                $promotionEnquiry->setDiscountedPrice($modifiedPrice);
+                $promotionEnquiry->setPromotionId($promotion->getId());
+                $promotionEnquiry->setPromotionName($promotion->getName());
+
+                $lowestPrice = $modifiedPrice;
+            }
 
         }
+
         return $promotionEnquiry;
     }
 }
