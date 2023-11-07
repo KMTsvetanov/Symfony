@@ -163,6 +163,10 @@ Useful Info
 <h4>Tests</h4>
 * ``vendor/bin/phpunit tests/unit/LowestPriceFilterTest.php``
 
+<h4>Caching</h4>
+* ``composer require cache``
+* ``symfony console cache:pool:delete cache.app valid-for-product-1`` - Clear an Item out of the cache
+
 
 On merge into main we want to:
 ------------

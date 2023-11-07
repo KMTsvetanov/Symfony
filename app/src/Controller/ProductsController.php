@@ -2,11 +2,13 @@
 
 namespace App\Controller;
 
+use App\Cache\PromotionCache;
 use App\DTO\LowestPriceEnquiry;
 use App\Entity\Movie;
 use App\Entity\Product;
 use App\Entity\Promotion;
 use App\Filter\PromotionsFilterInterface;
+use App\Repository\PromotionRepository;
 use App\Serializer\SnakeCaseSerializer;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -15,6 +17,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Contracts\Cache\CacheInterface;
+use Symfony\Contracts\Cache\ItemInterface;
 
 class ProductsController extends AbstractController
 {
@@ -27,6 +31,7 @@ class ProductsController extends AbstractController
 //        SerializerInterface $serializer,
         SnakeCaseSerializer $serializer,
         PromotionsFilterInterface $promotionsFilter,
+        PromotionCache $promotionCache
     ) : Response
     {
         if ($request->headers->has('force_fail')) {
@@ -44,28 +49,12 @@ class ProductsController extends AbstractController
 
         $lowestPriceEnquiry->setProduct($product);
 
-        $promotionRepository = $this->entityManager->getRepository(Promotion::class);
-
-        $promotions = $promotionRepository->findValidForProduct(
-            $product,
-            date_create_immutable($lowestPriceEnquiry->getRequestDate())
-        );
+        $promotions = $promotionCache->findValidForProduct($product, $lowestPriceEnquiry->getRequestDate());
 
         $modifiedEnquiry = $promotionsFilter->apply($lowestPriceEnquiry, ...$promotions);
 
         $responseContent = $serializer->serialize($modifiedEnquiry, 'json');
-        return new Response($responseContent, 200, ['Content-Type' => 'application/json']);
 
-        return new JsonResponse([
-            'quantity' => 6,
-            'request_location' => 'UK',
-            'voucher_code' => '0U812',
-            'request_date' => '2022-04-04',
-            'product_id' => $id,
-            'price' => 100,
-            'discounted_price' => 50,
-            'promotion_id' => 3,
-            'promotion_name' => 'Black Friday half price sale',
-        ], 200);
+        return new Response($responseContent, 200, ['Content-Type' => 'application/json']);
     }
 }
