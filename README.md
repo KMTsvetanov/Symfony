@@ -166,6 +166,7 @@ Useful Info
 <h4>Caching</h4>
 * ``composer require cache``
 * ``symfony console cache:pool:delete cache.app valid-for-product-1`` - Clear an Item out of the cache
+* ``composer require predis/predis`` - Library for helping php work with Redis
 
 
 On merge into main we want to:
