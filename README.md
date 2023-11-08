@@ -131,6 +131,57 @@ Useful Info
   * ``symfony console debug:messenger`` - To see all the configured handlers, run:
   * ``symfony console messenger:consume async -vv`` - Consuming Messages (Running the Worker) - (-vv) to see all the configured handlers
 
+<h4>Symfony microservice</h4>
+<img src="images/012-symfony-microservice.png" alt="Sample Image" width="500" height="400">
+  * ProductsController->lowestPrice
+    * POST request:
+      * URL: `http://localhost/products/1/lowest-price?XDEBUG_SESSION_START=PHPSTORM` 
+      * Headers
+        * Accept: application/json
+        * Content-Type: application/json
+        * Force-fail: 500
+      * Body: {
+        "quantity": 5,
+        "request_location": "UK",
+        "voucher_code": "0U812",
+        "request_date": "2022-04-04",
+        "product_id": 1
+        }
+
+<h4>Entities vs DTOs (Data Transfer Objects)</h4> 
+  * Entities represent the real things in your 
+  application.
+  * DTOs are like data carriers that help you move 
+  data between different parts of your application. They keep things 
+  organized and make sure data arrives where it's supposed to be. 
+
+<h6>Schema</h4>
+<img src="images/012-symfony-microservice_2.png" alt="Sample Image" width="700" height="200">
+
+* ``composer require doctrine/annotations``
+
+<h4>Tests</h4>
+* ``vendor/bin/phpunit tests/unit/LowestPriceFilterTest.php``
+
+<h4>Caching</h4>
+* ``composer require cache``
+* ``symfony console cache:pool:delete cache.app valid-for-product-1`` - Clear an Item out of the cache
+* ``composer require predis/predis`` - Library for helping php work with Redis
+
+<h4>Events vs Symfony Message Handling</h4>
+- Events:
+   - Think of events as "notifications" in your application.
+   - Use events when you want your application to react to things that happen, like sending an email when a user signs up or logging an action.
+   - Events are like a bell that rings when something important happens in your app.
+- Symfony Console's make:message Command:
+   - Imagine you have a "to-do list" for your application.
+   - Use the make:message command to create "tasks" that your application can work on in the background.
+   - It's like writing down tasks on a list, and your application completes them when it has time.
+* ``composer require validator``
+* ``symfony console debug:autowiring EventDispatcher`` - The following classes & interfaces can be used as type-hints when autowiring
+* ``vendor/bin/phpunit tests/unit/DtoSubscriberTest.php``
+
+
 On merge into main we want to:
 ------------
 * Run the tests
