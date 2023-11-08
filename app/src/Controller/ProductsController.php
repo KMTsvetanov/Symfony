@@ -4,21 +4,15 @@ namespace App\Controller;
 
 use App\Cache\PromotionCache;
 use App\DTO\LowestPriceEnquiry;
-use App\Entity\Movie;
 use App\Entity\Product;
-use App\Entity\Promotion;
 use App\Filter\PromotionsFilterInterface;
-use App\Repository\PromotionRepository;
-use App\Serializer\SnakeCaseSerializer;
+use App\Service\Serializer\DTOSerializer;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Serializer\SerializerInterface;
-use Symfony\Contracts\Cache\CacheInterface;
-use Symfony\Contracts\Cache\ItemInterface;
 
 class ProductsController extends AbstractController
 {
@@ -27,11 +21,11 @@ class ProductsController extends AbstractController
     }
 
     #[Route('/products/{id}/lowest-price', name: 'lowest-price', methods: ['POST'])]
-    public function lowestPrice(Request $request, int $id,
+    public function lowestPrice(Request                   $request, int $id,
 //        SerializerInterface $serializer,
-        SnakeCaseSerializer $serializer,
-        PromotionsFilterInterface $promotionsFilter,
-        PromotionCache $promotionCache
+                                DTOSerializer             $serializer,
+                                PromotionsFilterInterface $promotionsFilter,
+                                PromotionCache            $promotionCache
     ) : Response
     {
         if ($request->headers->has('force_fail')) {

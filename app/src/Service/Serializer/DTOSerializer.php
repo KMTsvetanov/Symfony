@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Serializer;
+namespace App\Service\Serializer;
 
 use App\Event\AfterDtoCreatedEvent;
 use Doctrine\Common\Annotations\AnnotationReader;
@@ -13,7 +13,7 @@ use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 
-class SnakeCaseSerializer implements SerializerInterface
+class DTOSerializer implements SerializerInterface
 {
     private SerializerInterface $serializer;
 
