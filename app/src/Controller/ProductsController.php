@@ -6,6 +6,7 @@ use App\Cache\PromotionCache;
 use App\DTO\LowestPriceEnquiry;
 use App\Entity\Product;
 use App\Filter\PromotionsFilterInterface;
+use App\Repository\ProductRepository;
 use App\Service\Serializer\DTOSerializer;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -28,18 +29,13 @@ class ProductsController extends AbstractController
                                 PromotionCache            $promotionCache
     ) : Response
     {
-        if ($request->headers->has('force_fail')) {
-            return new JsonResponse([
-                'error' => 'Promotions Engine Failure Message'
-            ], $request->headers->get('force_fail'));
-        }
-
         /** @var LowestPriceEnquiry $lowestPriceEnquiry */
         $lowestPriceEnquiry = $serializer->deserialize($request->getContent(), LowestPriceEnquiry::class, 'json');
 
+        /** @var ProductRepository $productRepository */
         $productRepository = $this->entityManager->getRepository(Product::class);
 
-        $product = $productRepository->find($id); // add Error handling for not found product
+        $product = $productRepository->findOrFail($id);
 
         $lowestPriceEnquiry->setProduct($product);
 
