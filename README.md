@@ -182,6 +182,10 @@ Useful Info
 * ``vendor/bin/phpunit tests/unit/DtoSubscriberTest.php``
 
 
+<h4>Setup SQLite in-memory test database</h4>
+* ``composer require dama/doctrine-test-bundle --dev`` - A Symfony bundle that provides helpful tools and utilities for testing Doctrine database-related functionality in Symfony applications. 
+  It can be particularly useful for creating and managing test databases, loading fixtures, and isolating your tests from the actual database, making it easier to write and maintain tests.
+
 On merge into main we want to:
 ------------
 * Run the tests
