@@ -41,21 +41,33 @@ class RefreshStockProfileCommand extends Command
 
 
         // 1. Ping Yahoo API and grab the response (a stock profile)
+        /**
+         *  [
+         *      'statusCode' => $statusCode,
+         *      'content' => $someJsonContent,
+         *  ]
+         */
         $stockProfile = $this->yahooFinanceApiClient->fetchStockProfile($symbol, $region, $lang);
+
+        if ($stockProfile['statusCode'] !== 200) {
+            // Handle non 200 status code response
+        }
 
         // 2.b. Use response to create a record if it doesn't exist
 
-        $stock = new Stock();
-        $stock->setSymbol($stockProfile->symbol);
-        $stock->setShortName($stockProfile->shortName);
-        $stock->setCurrency($stockProfile->currency);
-        $stock->setExchangeName($stockProfile->exchangeName);
-        $stock->setRegion($stockProfile->region);
-        $stock->setLang($stockProfile->lang);
-        $stock->setPrice($stockProfile->price);
-        $stock->setPreviousClose($stockProfile->previousClose);
-        $priceChange = $stockProfile->price - $stockProfile->previousClose;
-        $stock->setPriceChange($priceChange);
+        $stock = $this->serializer->deserialize($stockProfile['content'], Stock::class, 'json');
+        dd($stock);
+//        $stock = new Stock();
+//        $stock->setSymbol($stockProfile->symbol);
+//        $stock->setShortName($stockProfile->shortName);
+//        $stock->setCurrency($stockProfile->currency);
+//        $stock->setExchangeName($stockProfile->exchangeName);
+//        $stock->setRegion($stockProfile->region);
+//        $stock->setLang($stockProfile->lang);
+//        $stock->setPrice($stockProfile->price);
+//        $stock->setPreviousClose($stockProfile->previousClose);
+//        $priceChange = $stockProfile->price - $stockProfile->previousClose;
+//        $stock->setPriceChange($priceChange);
 
         $this->entityManager->persist($stock);
 
