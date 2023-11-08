@@ -16,19 +16,9 @@ class ExceptionListener
         /** @var ServiceException $exception */
         $exception = $event->getThrowable();
 
-//        dd($exception->getStatusCode());
+        $exceptionData = $exception->getExceptionData();
 
-        $response = new JsonResponse([
-            'type' => 'ConstraintViolationList',
-            'title' => 'An error occurred',
-            'description' => 'This value should be positive',
-            'violations' => [
-                [
-                    'propertyPath' => 'quantity',
-                    'message' => 'This value should be positive',
-                ],
-            ],
-        ]);
+        $response = new JsonResponse($exceptionData->toArray());
 
         if ($exception instanceof HttpExceptionInterface) {
             $response->setStatusCode($exception->getStatusCode());
