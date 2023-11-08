@@ -29,6 +29,9 @@ class Stock
     #[ORM\Column(length: 3)]
     private ?string $region = null;
 
+    #[ORM\Column(length: 5)]
+    private ?string $lang = null;
+
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
     private ?string $price = null;
 
@@ -101,6 +104,16 @@ class Stock
         $this->region = $region;
 
         return $this;
+    }
+
+    public function getLang(): ?string
+    {
+        return $this->lang;
+    }
+
+    public function setLang(?string $lang): void
+    {
+        $this->lang = $lang;
     }
 
     public function getPrice(): ?string
