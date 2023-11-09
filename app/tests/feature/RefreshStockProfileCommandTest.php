@@ -3,6 +3,7 @@
 namespace App\Tests\feature;
 
 use App\Entity\Stock;
+use App\Http\FakeYahooFinanceApiClient;
 use App\Tests\DatabaseDependantTestCase;
 use App\Tests\DatabasePrimer;
 use Doctrine\ORM\EntityManagerInterface;
@@ -24,6 +25,9 @@ class RefreshStockProfileCommandTest extends DatabaseDependantTestCase
         $command = $application->find('app:refresh-stock-profile');
 
         $commandTester = new CommandTester($command);
+
+        // Set faked return content
+        FakeYahooFinanceApiClient::$content = '{"symbol":"INTC","shortName":"Intel Corporation","currency":"USD","exchangeName":"NasdaqGS","region":"US","lang":"en-US","price":37.92,"previousClose":38.77,"priceChange":-0.85}';
 
         // Do something
 
