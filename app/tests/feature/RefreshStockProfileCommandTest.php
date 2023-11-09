@@ -14,7 +14,7 @@ use Symfony\Component\Console\Tester\CommandTester;
 class RefreshStockProfileCommandTest extends DatabaseDependantTestCase
 {
     /** @test */
-    public function the_refresh_stock_prole_works_correctly_when_a_stock_record_does_not_exist()
+    public function the_refresh_stock_profile_command_creates_new_record_correctly()
     {
         // Setup
 
@@ -55,6 +55,78 @@ class RefreshStockProfileCommandTest extends DatabaseDependantTestCase
         $this->assertEquals(38.77, $stock->getPreviousClose());
         $this->assertEquals(-0.85, $stock->getPriceChange());
         $this->assertStringContainsString('Intel Corporation has been saved / updated', $commandTester->getDisplay());
+    }
+
+    /** @test */
+    public function the_refresh_stock_profile_command_updates_existing_record_correctly()
+    {
+        // Setup
+
+        // An existing Stock record
+        $stock = new Stock();
+        $stock->setSymbol('INTC');
+        $stock->setShortName('Intel Corporation');
+        $stock->setCurrency('USD');
+        $stock->setExchangeName('Nasdaq');
+        $stock->setRegion('US');
+        $stock->setLang('en-US');
+        $stock->setPrice(100.32);
+        $stock->setPreviousClose(200.22);
+        $stock->setPriceChange(-100.10);
+
+        $this->entityManager->persist($stock);
+        $this->entityManager->flush();
+
+        $stockId = $stock->getId();
+
+        $application = new Application(self::$kernel);
+
+        // Command
+
+        $command = $application->find('app:refresh-stock-profile');
+
+        $commandTester = new CommandTester($command);
+
+        // Set faked return content
+        FakeYahooFinanceApiClient::$statusCode = 200;
+        FakeYahooFinanceApiClient::setContent([
+            'previous_close' => '500.10',
+            'price' => '400.05',
+            'priceChange' => '100.05'
+        ]);
+
+        // Do something
+
+        $commandStatus = $commandTester->execute([
+            'symbol' => 'INTC',
+            'region' => 'US',
+            'lang' => 'en-US'
+        ]);
+
+        // Make assertions
+
+        $stockRepository = $this->entityManager->getRepository(Stock::class);
+
+        /** @var Stock $stock */
+        $stock = $stockRepository->find($stockId);
+
+        $this->assertEquals(500.10, $stock->getPreviousClose());
+        $this->assertEquals(400.05, $stock->getPrice());
+        $this->assertEquals(100.05, $stock->getPriceChange());
+
+        $stockRecordCount = $stockRepository->createQueryBuilder('stock')
+            ->select('count(stock)')
+            ->getQuery()
+            ->getSingleScalarResult();
+
+        // Make assertions
+
+        $this->assertEquals(0, $commandStatus);
+
+        // Check on duplicates i.e. 1 record instead of 2
+        $this->assertEquals(1, $stockRecordCount);
+
+//        $this->assertStringContainsString('Intel Corporation has been saved / updated', $commandTester->getDisplay());
     }
 
     /** @test */

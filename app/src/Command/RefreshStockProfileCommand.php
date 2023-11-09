@@ -13,6 +13,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
+use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
 use Symfony\Component\Serializer\SerializerInterface;
 
 #[AsCommand(
@@ -65,8 +66,20 @@ class RefreshStockProfileCommand extends Command
 
         // 2.b. Use response to create a record if it doesn't exist
 
-        /** @var Stock $stock */
-        $stock = $this->serializer->deserialize($stockProfile->getContent(), Stock::class, 'json');
+        // Attempt to find a record in the DB using the $stockPrice symbol
+        $symbol = json_decode($stockProfile->getContent())->symbol ?? null;
+
+        if ($stock = $this->entityManager->getRepository(Stock::class)->findOneBy(['symbol' => $symbol])) {
+            // update if found
+
+            $this->serializer->deserialize($stockProfile->getContent(), Stock::class, 'json', [
+                AbstractNormalizer::OBJECT_TO_POPULATE => $stock
+            ]);
+
+        } else {
+            // Create a new stock record if not found
+
+            $stock = $this->serializer->deserialize($stockProfile->getContent(), Stock::class, 'json');
 //        $stock->setPrice((float) $stock->getPrice());
 //        dd($stock);
 
@@ -81,6 +94,7 @@ class RefreshStockProfileCommand extends Command
 //        $stock->setPreviousClose($stockProfile->previousClose);
 //        $priceChange = $stockProfile->price - $stockProfile->previousClose;
 //        $stock->setPriceChange($priceChange);
+        }
 
         $this->entityManager->persist($stock);
 

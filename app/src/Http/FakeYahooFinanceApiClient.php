@@ -11,6 +11,18 @@ class FakeYahooFinanceApiClient implements FinanceApiClientInterface
 
     public static string $content = '';
 
+    public static function setContent(array $overrides): void
+    {
+        self::$content = json_encode(array_merge([
+            'symbol' => 'INTC',
+            'shortName' => 'Intel Corporation',
+            'currency' => 'USD',
+            'exchangeName' => 'NasdaqGS',
+            'region' => 'US',
+            'lang' => 'en-US',
+        ], $overrides));
+    }
+
     public function fetchStockProfile($symbol, $region, $lang): JsonResponse
     {
 
