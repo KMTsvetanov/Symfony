@@ -189,6 +189,7 @@ Useful Info
   *  Choose a command name - `app:refresh-stock-profile`
 *  ``composer require serializer`` - 'app:refresh-stock-profile'
 * `vendor/bin/phpunit tests --exclude-group integration`
+* `vendor/bin/phpunit tests --group integration` - Run only integration tests
 
 On merge into main we want to:
 ------------
