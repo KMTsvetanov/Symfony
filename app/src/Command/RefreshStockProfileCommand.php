@@ -3,7 +3,8 @@
 namespace App\Command;
 
 use App\Entity\Stock;
-use App\Http\YahooFinanceApiClient;
+use App\Http\FinanceApiClientInterface;
+use App\Http\financeApiClient;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
@@ -12,6 +13,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
+use Symfony\Component\Serializer\SerializerInterface;
 
 #[AsCommand(
     name: 'app:refresh-stock-profile',
@@ -19,7 +21,11 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 )]
 class RefreshStockProfileCommand extends Command
 {
-    public function __construct(private EntityManagerInterface $entityManager, private YahooFinanceApiClient $yahooFinanceApiClient)
+    public function __construct(
+        private EntityManagerInterface $entityManager,
+        private FinanceApiClientInterface $financeApiClient,
+        private SerializerInterface $serializer
+    )
     {
         parent::__construct();
     }
@@ -47,7 +53,7 @@ class RefreshStockProfileCommand extends Command
          *      'content' => $someJsonContent,
          *  ]
          */
-        $stockProfile = $this->yahooFinanceApiClient->fetchStockProfile($symbol, $region, $lang);
+        $stockProfile = $this->financeApiClient->fetchStockProfile($symbol, $region, $lang);
 
         if ($stockProfile['statusCode'] !== 200) {
             // Handle non 200 status code response
@@ -56,7 +62,8 @@ class RefreshStockProfileCommand extends Command
         // 2.b. Use response to create a record if it doesn't exist
 
         $stock = $this->serializer->deserialize($stockProfile['content'], Stock::class, 'json');
-        dd($stock);
+//        dd($stock);
+
 //        $stock = new Stock();
 //        $stock->setSymbol($stockProfile->symbol);
 //        $stock->setShortName($stockProfile->shortName);

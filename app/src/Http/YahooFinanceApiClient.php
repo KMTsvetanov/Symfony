@@ -3,9 +3,8 @@
 namespace App\Http;
 
 use Symfony\Contracts\HttpClient\HttpClientInterface;
-use Symfony\Component\VarDumper\VarDumper;
 
-class YahooFinanceApiClient
+class YahooFinanceApiClient implements FinanceApiClientInterface
 {
     private const URL = 'https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-summary';
     private const X_RAPID_API_HOST = 'apidojo-yahoo-finance-v1.p.rapidapi.com';

@@ -47,8 +47,8 @@ class RefreshStockProfileCommandTest extends DatabaseDependantTestCase
         $this->assertEquals('NasdaqGS', $stock->getExchangeName());
         $this->assertEquals('US', $stock->getRegion());
         $this->assertEquals('en-US', $stock->getLang());
-        $this->assertEquals('38.77', $stock->getPrice());
-        $this->assertEquals('37.95', $stock->getPreviousClose());
-        $this->assertEquals('0.82', $stock->getPriceChange());
+        $this->assertEquals(37.92, $stock->getPrice());
+        $this->assertEquals(38.77, $stock->getPreviousClose());
+        $this->assertEquals(-0.85, $stock->getPriceChange());
     }
 }

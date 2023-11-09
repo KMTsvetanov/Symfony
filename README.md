@@ -187,6 +187,7 @@ Useful Info
   It can be particularly useful for creating and managing test databases, loading fixtures, and isolating your tests from the actual database, making it easier to write and maintain tests.
 * ``symfony console make:command`` - Used to generate a new console command for your Symfony application. 
   *  Choose a command name - `app:refresh-stock-profile`
+*  composer require serializer - `app:refresh-stock-profile`
 
 On merge into main we want to:
 ------------
