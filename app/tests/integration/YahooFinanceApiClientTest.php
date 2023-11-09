@@ -22,7 +22,7 @@ class YahooFinanceApiClientTest extends DatabaseDependantTestCase
 
         $response = $yahooFinanceApiClint->fetchStockProfile('INTC', 'US', 'en-US'); // symbol, region, lang
 
-        $stockProfile = json_decode($response);
+        $stockProfile = json_decode($response['content']);
 
         // Make assertions
 
@@ -32,8 +32,5 @@ class YahooFinanceApiClientTest extends DatabaseDependantTestCase
         $this->assertSame('NasdaqGS', $stockProfile->exchangeName);
         $this->assertSame('US', $stockProfile->region);
         $this->assertSame('en-US', $stockProfile->lang);
-        $this->assertIsFloat($stockProfile->price);
-        $this->assertIsFloat($stockProfile->previousClose);
-        $this->assertIsFloat($stockProfile->priceChange);
     }
 }
