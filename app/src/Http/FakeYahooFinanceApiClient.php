@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class FakeYahooFinanceApiClient implements FinanceApiClientInterface
@@ -10,7 +11,7 @@ class FakeYahooFinanceApiClient implements FinanceApiClientInterface
 
     public static string $content = '';
 
-    public function fetchStockProfile($symbol, $region, $lang): array
+    public function fetchStockProfile($symbol, $region, $lang): JsonResponse
     {
 
         $stockProfileAsArray = [
@@ -25,9 +26,6 @@ class FakeYahooFinanceApiClient implements FinanceApiClientInterface
             'priceChange' => -0.85,
         ];
 
-        return [
-            'statusCode' => self::$statusCode,
-            'content' => json_encode($stockProfileAsArray),
-        ];
+        return new JsonResponse(self::$content, self::$statusCode, [], $json = true); // Already json, don't encode
     }
 }

@@ -32,14 +32,14 @@ class Stock
     #[ORM\Column(length: 5)]
     private ?string $lang = null;
 
-    #[ORM\Column(type: Types::FLOAT, precision: 10, scale: 2)]
-    private ?float $price = null;
+    #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
+    private string $price;
 
-    #[ORM\Column(type: Types::FLOAT, precision: 10, scale: 2, nullable: true)]
-    private ?float $previousClose = null;
+    #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
+    private string $previousClose;
 
-    #[ORM\Column(type: Types::FLOAT, precision: 10, scale: 2, nullable: true)]
-    private ?float $priceChange = null;
+    #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
+    private string $priceChange;
 
     public function getId(): ?int
     {
@@ -116,36 +116,36 @@ class Stock
         $this->lang = $lang;
     }
 
-    public function getPrice(): ?float
+    public function getPrice(): ?string
     {
         return $this->price;
     }
 
-    public function setPrice(float $price): static
+    public function setPrice(string $price): static
     {
         $this->price = $price;
 
         return $this;
     }
 
-    public function getPreviousClose(): ?float
+    public function getPreviousClose(): ?string
     {
         return $this->previousClose;
     }
 
-    public function setPreviousClose(?float $previousClose): static
+    public function setPreviousClose(?string $previousClose): static
     {
         $this->previousClose = $previousClose;
 
         return $this;
     }
 
-    public function getPriceChange(): ?float
+    public function getPriceChange(): ?string
     {
         return $this->priceChange;
     }
 
-    public function setPriceChange(?float $priceChange): static
+    public function setPriceChange(?string $priceChange): static
     {
         $this->priceChange = $priceChange;
 

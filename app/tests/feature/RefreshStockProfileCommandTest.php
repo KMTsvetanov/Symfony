@@ -27,7 +27,7 @@ class RefreshStockProfileCommandTest extends DatabaseDependantTestCase
         $commandTester = new CommandTester($command);
 
         // Set faked return content
-        FakeYahooFinanceApiClient::$content = '{"symbol":"INTC","shortName":"Intel Corporation","currency":"USD","exchangeName":"NasdaqGS","region":"US","lang":"en-US","price":37.92,"previousClose":38.77,"priceChange":-0.85}';
+        FakeYahooFinanceApiClient::$content = '{"symbol":"INTC","shortName":"Intel Corporation","currency":"USD","exchangeName":"NasdaqGS","region":"US","lang":"en-US","price":"37.92","previousClose":"38.77","priceChange":"-0.85"}';
 
         // Do something
 
@@ -54,5 +54,47 @@ class RefreshStockProfileCommandTest extends DatabaseDependantTestCase
         $this->assertEquals(37.92, $stock->getPrice());
         $this->assertEquals(38.77, $stock->getPreviousClose());
         $this->assertEquals(-0.85, $stock->getPriceChange());
+        $this->assertStringContainsString('Intel Corporation has been saved / updated', $commandTester->getDisplay());
+    }
+
+    /** @test */
+    public function non_200_status_code_response_are_handled_correctly()
+    {
+        // Setup
+
+        $application = new Application(self::$kernel);
+
+        // Command
+
+        $command = $application->find('app:refresh-stock-profile');
+
+        $commandTester = new CommandTester($command);
+
+        // Set faked return content
+        FakeYahooFinanceApiClient::$statusCode = 500;
+
+        FakeYahooFinanceApiClient::$content = 'Finance API Client Error';
+
+        // Do something
+
+        $commandStatus = $commandTester->execute([
+            'symbol' => 'INTC',
+            'region' => 'US',
+            'lang' => 'en-US'
+        ]);
+
+        $stockRepository = $this->entityManager->getRepository(Stock::class);
+
+        $stockRecordCount = $stockRepository->createQueryBuilder('stock')
+            ->select('count(stock)')
+            ->getQuery()
+            ->getSingleScalarResult();
+
+        // Make assertions
+
+        $this->assertEquals(1, $commandStatus);
+        $this->assertEquals(0, $stockRecordCount);
+
+        $this->assertStringContainsString('Finance API Client Error', $commandTester->getDisplay());
     }
 }

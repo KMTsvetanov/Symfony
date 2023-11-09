@@ -55,13 +55,19 @@ class RefreshStockProfileCommand extends Command
          */
         $stockProfile = $this->financeApiClient->fetchStockProfile($symbol, $region, $lang);
 
-        if ($stockProfile['statusCode'] !== 200) {
-            // Handle non 200 status code response
+
+        if ($stockProfile->getStatusCode() !== 200) {
+
+            $output->writeln($stockProfile->getContent());
+
+            return Command::FAILURE;
         }
 
         // 2.b. Use response to create a record if it doesn't exist
 
-        $stock = $this->serializer->deserialize($stockProfile['content'], Stock::class, 'json');
+        /** @var Stock $stock */
+        $stock = $this->serializer->deserialize($stockProfile->getContent(), Stock::class, 'json');
+//        $stock->setPrice((float) $stock->getPrice());
 //        dd($stock);
 
 //        $stock = new Stock();
@@ -79,6 +85,8 @@ class RefreshStockProfileCommand extends Command
         $this->entityManager->persist($stock);
 
         $this->entityManager->flush();
+
+        $output->writeln($stock->getShortName() . ' has been saved / updated.');
 
         return Command::SUCCESS;
     }

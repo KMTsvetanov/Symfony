@@ -22,7 +22,7 @@ class YahooFinanceApiClientTest extends DatabaseDependantTestCase
 
         $response = $yahooFinanceApiClint->fetchStockProfile('INTC', 'US', 'en-US'); // symbol, region, lang
 
-        $stockProfile = json_decode($response['content']);
+        $stockProfile = json_decode($response->getContent());
 
         // Make assertions
 
