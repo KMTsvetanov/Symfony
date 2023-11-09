@@ -44,7 +44,7 @@ class TddTest extends DatabaseDependantTestCase
 
         $price = 38.77;
         $previousClose = 37.95;
-        $priceChange = $price - $previousClose;
+        $priceChange = round($price - $previousClose, 2);
 
         // price
         $stock->setPrice($price);
