@@ -182,6 +182,15 @@ Useful Info
 * ``vendor/bin/phpunit tests/unit/DtoSubscriberTest.php``
 
 
+<h4>Setup SQLite in-memory test database</h4>
+* ``composer require dama/doctrine-test-bundle --dev`` - A Symfony bundle that provides helpful tools and utilities for testing Doctrine database-related functionality in Symfony applications. 
+  It can be particularly useful for creating and managing test databases, loading fixtures, and isolating your tests from the actual database, making it easier to write and maintain tests.
+* ``symfony console make:command`` - Used to generate a new console command for your Symfony application. 
+  *  Choose a command name - `app:refresh-stock-profile`
+*  ``composer require serializer`` - 'app:refresh-stock-profile'
+* `vendor/bin/phpunit tests --exclude-group integration`
+* `vendor/bin/phpunit tests --group integration` - Run only integration tests
+
 On merge into main we want to:
 ------------
 * Run the tests
