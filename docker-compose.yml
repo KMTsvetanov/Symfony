@@ -38,11 +38,11 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE}
 
+  cache:
+    container_name: cache
+    image: redis:latest
+
 # Commented because low CPU and Memory on Laptop   ( http://localhost:9200/ and http://localhost:5601/app/dev_tools#/console )
-#  cache:
-#    container_name: cache
-#    image: redis:latest
-#
 #  es01:
 #    image: docker.elastic.co/elasticsearch/elasticsearch:8.11.0
 #    container_name: es01
