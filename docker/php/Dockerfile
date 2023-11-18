@@ -56,6 +56,10 @@ RUN composer install --prefer-dist --no-dev --no-scripts --no-progress --no-inte
 # copy application files to the working directory
 COPY ./app .
 
+# Set permissions to allow Symfony commands to run without permission issues
+RUN chown -R www-data:www-data .
+RUN chmod -R 775 ./var
+
 # run composer dump-autoload --optimize
 RUN composer dump-autoload --optimize
 

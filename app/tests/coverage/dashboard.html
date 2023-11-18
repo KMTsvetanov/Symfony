@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /var/www/src</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="_css/bootstrap.min.css?v=9.2.29" rel="stylesheet" type="text/css">
+  <link href="_css/nv.d3.min.css?v=9.2.29" rel="stylesheet" type="text/css">
+  <link href="_css/style.css?v=9.2.29" rel="stylesheet" type="text/css">
+  <link href="_css/custom.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+  <header>
+   <div class="container-fluid">
+    <div class="row">
+     <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+       <ol class="breadcrumb">
+         <li class="breadcrumb-item"><a href="index.html">/var/www/src</a></li>
+         <li class="breadcrumb-item active">(Dashboard)</li>
+
+       </ol>
+      </nav>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Cache/PromotionCache.php.html#10">App\Cache\PromotionCache</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/HomeController.php.html#9">App\Controller\HomeController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/MoviesController.php.html#16">App\Controller\MoviesController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/ProcessTaskController.php.html#11">App\Controller\ProcessTaskController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/ProductsController.php.html#18">App\Controller\ProductsController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/RegistrationController.php.html#14">App\Controller\RegistrationController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/SecurityController.php.html#10">App\Controller\SecurityController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/A1ProductFixtures.php.html#9">App\DataFixtures\A1ProductFixtures</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/A2PromotionFixtures.php.html#9">App\DataFixtures\A2PromotionFixtures</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/A3ProductPromotionFixtures.php.html#10">App\DataFixtures\A3ProductPromotionFixtures</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/ActorFixtures.php.html#9">App\DataFixtures\ActorFixtures</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/MovieFixtures.php.html#9">App\DataFixtures\MovieFixtures</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Actor.php.html#10">App\Entity\Actor</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Movie.php.html#11">App\Entity\Movie</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ProductPromotion.php.html#9">App\Entity\ProductPromotion</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/User.php.html#11">App\Entity\User</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EventListener/ExceptionListener.php.html#12">App\EventListener\ExceptionListener</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/MovieFormType.php.html#14">App\Form\MovieFormType</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/RegistrationFormType.php.html#15">App\Form\RegistrationFormType</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/YahooFinanceApiClient.php.html#8">App\Http\YahooFinanceApiClient</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Message/ProcessTaskMessage.php.html#5">App\Message\ProcessTaskMessage</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="MessageHandler/ProcessTaskMessageHandler.php.html#10">App\MessageHandler\ProcessTaskMessageHandler</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/ActorRepository.php.html#17">App\Repository\ActorRepository</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/MovieRepository.php.html#17">App\Repository\MovieRepository</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/ProductPromotionRepository.php.html#17">App\Repository\ProductPromotionRepository</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/ProductRepository.php.html#19">App\Repository\ProductRepository</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/PromotionRepository.php.html#18">App\Repository\PromotionRepository</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/UserRepository.php.html#22">App\Repository\UserRepository</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Security/LoginFormAuthenticator.php.html#18">App\Security\LoginFormAuthenticator</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/Serializer/DTOSerializer.php.html#16">App\Service\Serializer\DTOSerializer</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/ValidationExceptionData.php.html#7">App\Service\ValidationExceptionData</a></td><td class="text-right">8%</td></tr>
+       <tr><td><a href="Service/ServiceExceptionData.php.html#4">App\Service\ServiceExceptionData</a></td><td class="text-right">50%</td></tr>
+       <tr><td><a href="Filter/Modifier/FixedPriceVoucher.php.html#9">App\Filter\Modifier\FixedPriceVoucher</a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Entity/Product.php.html#10">App\Entity\Product</a></td><td class="text-right">75%</td></tr>
+       <tr><td><a href="Service/ServiceException.php.html#7">App\Service\ServiceException</a></td><td class="text-right">75%</td></tr>
+       <tr><td><a href="Filter/Modifier/EvenItemsMultiplier.php.html#9">App\Filter\Modifier\EvenItemsMultiplier</a></td><td class="text-right">80%</td></tr>
+       <tr><td><a href="Filter/Modifier/Factory/PriceModifierFactory.php.html#9">App\Filter\Modifier\Factory\PriceModifierFactory</a></td><td class="text-right">80%</td></tr>
+       <tr><td><a href="Command/RefreshStockProfileCommand.php.html#20">App\Command\RefreshStockProfileCommand</a></td><td class="text-right">82%</td></tr>
+       <tr><td><a href="DTO/LowestPriceEnquiry.php.html#9">App\DTO\LowestPriceEnquiry</a></td><td class="text-right">83%</td></tr>
+       <tr><td><a href="Filter/Modifier/DataRangeMultiplier.php.html#9">App\Filter\Modifier\DataRangeMultiplier</a></td><td class="text-right">83%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Controller/MoviesController.php.html#16">App\Controller\MoviesController</a></td><td class="text-right">342</td></tr>
+       <tr><td><a href="Entity/Movie.php.html#11">App\Entity\Movie</a></td><td class="text-right">210</td></tr>
+       <tr><td><a href="Entity/Actor.php.html#10">App\Entity\Actor</a></td><td class="text-right">90</td></tr>
+       <tr><td><a href="Security/LoginFormAuthenticator.php.html#18">App\Security\LoginFormAuthenticator</a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Service/ValidationExceptionData.php.html#7">App\Service\ValidationExceptionData</a></td><td class="text-right">16</td></tr>
+       <tr><td><a href="Controller/RegistrationController.php.html#14">App\Controller\RegistrationController</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Http/YahooFinanceApiClient.php.html#8">App\Http\YahooFinanceApiClient</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Repository/ProductRepository.php.html#19">App\Repository\ProductRepository</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Repository/UserRepository.php.html#22">App\Repository\UserRepository</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Command/RefreshStockProfileCommand.php.html#20">App\Command\RefreshStockProfileCommand</a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="EventListener/ExceptionListener.php.html#12">App\EventListener\ExceptionListener</a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Filter/Modifier/DataRangeMultiplier.php.html#9">App\Filter\Modifier\DataRangeMultiplier</a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Filter/Modifier/FixedPriceVoucher.php.html#9">App\Filter\Modifier\FixedPriceVoucher</a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Filter/Modifier/EvenItemsMultiplier.php.html#9">App\Filter\Modifier\EvenItemsMultiplier</a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Filter/Modifier/Factory/PriceModifierFactory.php.html#9">App\Filter\Modifier\Factory\PriceModifierFactory</a></td><td class="text-right">2</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Cache/PromotionCache.php.html#12"><abbr title="App\Cache\PromotionCache::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Cache/PromotionCache.php.html#17"><abbr title="App\Cache\PromotionCache::findValidForProduct">findValidForProduct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/HomeController.php.html#11"><abbr title="App\Controller\HomeController::home">home</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/MoviesController.php.html#18"><abbr title="App\Controller\MoviesController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/MoviesController.php.html#41"><abbr title="App\Controller\MoviesController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/MoviesController.php.html#53"><abbr title="App\Controller\MoviesController::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/MoviesController.php.html#88"><abbr title="App\Controller\MoviesController::show">show</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/MoviesController.php.html#105"><abbr title="App\Controller\MoviesController::edit">edit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/MoviesController.php.html#149"><abbr title="App\Controller\MoviesController::delete">delete</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/ProcessTaskController.php.html#13"><abbr title="App\Controller\ProcessTaskController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/ProductsController.php.html#20"><abbr title="App\Controller\ProductsController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/ProductsController.php.html#24"><abbr title="App\Controller\ProductsController::lowestPrice">lowestPrice</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/RegistrationController.php.html#16"><abbr title="App\Controller\RegistrationController::register">register</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/SecurityController.php.html#12"><abbr title="App\Controller\SecurityController::login">login</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/SecurityController.php.html#27"><abbr title="App\Controller\SecurityController::logout">logout</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DTO/LowestPriceEnquiry.php.html#42"><abbr title="App\DTO\LowestPriceEnquiry::getRequestLocation">getRequestLocation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DTO/LowestPriceEnquiry.php.html#47"><abbr title="App\DTO\LowestPriceEnquiry::setRequestLocation">setRequestLocation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DTO/LowestPriceEnquiry.php.html#92"><abbr title="App\DTO\LowestPriceEnquiry::getPromotionId">getPromotionId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/A1ProductFixtures.php.html#11"><abbr title="App\DataFixtures\A1ProductFixtures::load">load</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/A2PromotionFixtures.php.html#11"><abbr title="App\DataFixtures\A2PromotionFixtures::load">load</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/A3ProductPromotionFixtures.php.html#12"><abbr title="App\DataFixtures\A3ProductPromotionFixtures::load">load</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/ActorFixtures.php.html#11"><abbr title="App\DataFixtures\ActorFixtures::load">load</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="DataFixtures/MovieFixtures.php.html#11"><abbr title="App\DataFixtures\MovieFixtures::load">load</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Actor.php.html#24"><abbr title="App\Entity\Actor::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Actor.php.html#29"><abbr title="App\Entity\Actor::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Actor.php.html#34"><abbr title="App\Entity\Actor::getName">getName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Actor.php.html#39"><abbr title="App\Entity\Actor::setName">setName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Actor.php.html#49"><abbr title="App\Entity\Actor::getMovies">getMovies</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Actor.php.html#54"><abbr title="App\Entity\Actor::addMovie">addMovie</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Actor.php.html#64"><abbr title="App\Entity\Actor::removeMovie">removeMovie</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Movie.php.html#39"><abbr title="App\Entity\Movie::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Movie.php.html#44"><abbr title="App\Entity\Movie::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Movie.php.html#49"><abbr title="App\Entity\Movie::getTitle">getTitle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Movie.php.html#54"><abbr title="App\Entity\Movie::setTitle">setTitle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Movie.php.html#61"><abbr title="App\Entity\Movie::getReleaseYear">getReleaseYear</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Movie.php.html#66"><abbr title="App\Entity\Movie::setReleaseYear">setReleaseYear</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Movie.php.html#73"><abbr title="App\Entity\Movie::getDescription">getDescription</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Movie.php.html#78"><abbr title="App\Entity\Movie::setDescription">setDescription</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Movie.php.html#85"><abbr title="App\Entity\Movie::getImagePath">getImagePath</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Movie.php.html#90"><abbr title="App\Entity\Movie::setImagePath">setImagePath</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Movie.php.html#100"><abbr title="App\Entity\Movie::getActors">getActors</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Movie.php.html#105"><abbr title="App\Entity\Movie::addActor">addActor</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Movie.php.html#114"><abbr title="App\Entity\Movie::removeActor">removeActor</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Product.php.html#29"><abbr title="App\Entity\Product::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ProductPromotion.php.html#28"><abbr title="App\Entity\ProductPromotion::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ProductPromotion.php.html#33"><abbr title="App\Entity\ProductPromotion::getProduct">getProduct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ProductPromotion.php.html#38"><abbr title="App\Entity\ProductPromotion::setProduct">setProduct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ProductPromotion.php.html#45"><abbr title="App\Entity\ProductPromotion::getPromotion">getPromotion</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ProductPromotion.php.html#50"><abbr title="App\Entity\ProductPromotion::setPromotion">setPromotion</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ProductPromotion.php.html#57"><abbr title="App\Entity\ProductPromotion::getValidTo">getValidTo</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/ProductPromotion.php.html#62"><abbr title="App\Entity\ProductPromotion::setValidTo">setValidTo</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Promotion.php.html#90"><abbr title="App\Entity\Promotion::getProductPromotions">getProductPromotions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/Stock.php.html#49"><abbr title="App\Entity\Stock::getSymbol">getSymbol</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/User.php.html#32"><abbr title="App\Entity\User::getId">getId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/User.php.html#37"><abbr title="App\Entity\User::getEmail">getEmail</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/User.php.html#42"><abbr title="App\Entity\User::setEmail">setEmail</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/User.php.html#54"><abbr title="App\Entity\User::getUserIdentifier">getUserIdentifier</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/User.php.html#62"><abbr title="App\Entity\User::getRoles">getRoles</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/User.php.html#71"><abbr title="App\Entity\User::setRoles">setRoles</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/User.php.html#81"><abbr title="App\Entity\User::getPassword">getPassword</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/User.php.html#86"><abbr title="App\Entity\User::setPassword">setPassword</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Entity/User.php.html#96"><abbr title="App\Entity\User::eraseCredentials">eraseCredentials</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EventListener/ExceptionListener.php.html#15"><abbr title="App\EventListener\ExceptionListener::onKernelException">onKernelException</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EventSubscriber/DtoSubscriber.php.html#45"><abbr title="App\EventSubscriber\DtoSubscriber::doSomethingElse">doSomethingElse</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/MovieFormType.php.html#16"><abbr title="App\Form\MovieFormType::buildForm">buildForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/MovieFormType.php.html#55"><abbr title="App\Form\MovieFormType::configureOptions">configureOptions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/RegistrationFormType.php.html#17"><abbr title="App\Form\RegistrationFormType::buildForm">buildForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Form/RegistrationFormType.php.html#49"><abbr title="App\Form\RegistrationFormType::configureOptions">configureOptions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/YahooFinanceApiClient.php.html#13"><abbr title="App\Http\YahooFinanceApiClient::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/YahooFinanceApiClient.php.html#17"><abbr title="App\Http\YahooFinanceApiClient::fetchStockProfile">fetchStockProfile</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Message/ProcessTaskMessage.php.html#13"><abbr title="App\Message\ProcessTaskMessage::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Message/ProcessTaskMessage.php.html#18"><abbr title="App\Message\ProcessTaskMessage::getOrderId">getOrderId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="MessageHandler/ProcessTaskMessageHandler.php.html#13"><abbr title="App\MessageHandler\ProcessTaskMessageHandler::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="MessageHandler/ProcessTaskMessageHandler.php.html#18"><abbr title="App\MessageHandler\ProcessTaskMessageHandler::__invoke">__invoke</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/ActorRepository.php.html#19"><abbr title="App\Repository\ActorRepository::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/MovieRepository.php.html#19"><abbr title="App\Repository\MovieRepository::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/ProductPromotionRepository.php.html#19"><abbr title="App\Repository\ProductPromotionRepository::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/ProductRepository.php.html#21"><abbr title="App\Repository\ProductRepository::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/ProductRepository.php.html#26"><abbr title="App\Repository\ProductRepository::findOrFail">findOrFail</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/PromotionRepository.php.html#20"><abbr title="App\Repository\PromotionRepository::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/PromotionRepository.php.html#25"><abbr title="App\Repository\PromotionRepository::findValidForProduct">findValidForProduct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/UserRepository.php.html#24"><abbr title="App\Repository\UserRepository::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repository/UserRepository.php.html#32"><abbr title="App\Repository\UserRepository::upgradePassword">upgradePassword</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Security/LoginFormAuthenticator.php.html#24"><abbr title="App\Security\LoginFormAuthenticator::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Security/LoginFormAuthenticator.php.html#28"><abbr title="App\Security\LoginFormAuthenticator::authenticate">authenticate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Security/LoginFormAuthenticator.php.html#42"><abbr title="App\Security\LoginFormAuthenticator::onAuthenticationSuccess">onAuthenticationSuccess</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Security/LoginFormAuthenticator.php.html#52"><abbr title="App\Security\LoginFormAuthenticator::getLoginUrl">getLoginUrl</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/Serializer/DTOSerializer.php.html#20"><abbr title="App\Service\Serializer\DTOSerializer::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/Serializer/DTOSerializer.php.html#36"><abbr title="App\Service\Serializer\DTOSerializer::serialize">serialize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/Serializer/DTOSerializer.php.html#41"><abbr title="App\Service\Serializer\DTOSerializer::deserialize">deserialize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/ServiceException.php.html#18"><abbr title="App\Service\ServiceException::getExceptionData">getExceptionData</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/ServiceExceptionData.php.html#20"><abbr title="App\Service\ServiceExceptionData::toArray">toArray</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/ValidationExceptionData.php.html#14"><abbr title="App\Service\ValidationExceptionData::toArray">toArray</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/ValidationExceptionData.php.html#22"><abbr title="App\Service\ValidationExceptionData::getViolationsArray">getViolationsArray</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Filter/Modifier/FixedPriceVoucher.php.html#11"><abbr title="App\Filter\Modifier\FixedPriceVoucher::modify">modify</abbr></a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Command/RefreshStockProfileCommand.php.html#45"><abbr title="App\Command\RefreshStockProfileCommand::execute">execute</abbr></a></td><td class="text-right">77%</td></tr>
+       <tr><td><a href="Filter/Modifier/EvenItemsMultiplier.php.html#11"><abbr title="App\Filter\Modifier\EvenItemsMultiplier::modify">modify</abbr></a></td><td class="text-right">80%</td></tr>
+       <tr><td><a href="Filter/Modifier/Factory/PriceModifierFactory.php.html#15"><abbr title="App\Filter\Modifier\Factory\PriceModifierFactory::create">create</abbr></a></td><td class="text-right">80%</td></tr>
+       <tr><td><a href="Filter/Modifier/DataRangeMultiplier.php.html#11"><abbr title="App\Filter\Modifier\DataRangeMultiplier::modify">modify</abbr></a></td><td class="text-right">83%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Controller/MoviesController.php.html#105"><abbr title="App\Controller\MoviesController::edit">edit</abbr></a></td><td class="text-right">56</td></tr>
+       <tr><td><a href="Controller/MoviesController.php.html#53"><abbr title="App\Controller\MoviesController::create">create</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Controller/RegistrationController.php.html#16"><abbr title="App\Controller\RegistrationController::register">register</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/MoviesController.php.html#88"><abbr title="App\Controller\MoviesController::show">show</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controller/MoviesController.php.html#149"><abbr title="App\Controller\MoviesController::delete">delete</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Entity/Actor.php.html#54"><abbr title="App\Entity\Actor::addMovie">addMovie</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Entity/Actor.php.html#64"><abbr title="App\Entity\Actor::removeMovie">removeMovie</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Entity/Movie.php.html#105"><abbr title="App\Entity\Movie::addActor">addActor</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="EventListener/ExceptionListener.php.html#15"><abbr title="App\EventListener\ExceptionListener::onKernelException">onKernelException</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/YahooFinanceApiClient.php.html#17"><abbr title="App\Http\YahooFinanceApiClient::fetchStockProfile">fetchStockProfile</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Repository/ProductRepository.php.html#26"><abbr title="App\Repository\ProductRepository::findOrFail">findOrFail</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Repository/UserRepository.php.html#32"><abbr title="App\Repository\UserRepository::upgradePassword">upgradePassword</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Security/LoginFormAuthenticator.php.html#42"><abbr title="App\Security\LoginFormAuthenticator::onAuthenticationSuccess">onAuthenticationSuccess</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Service/ValidationExceptionData.php.html#22"><abbr title="App\Service\ValidationExceptionData::getViolationsArray">getViolationsArray</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Command/RefreshStockProfileCommand.php.html#45"><abbr title="App\Command\RefreshStockProfileCommand::execute">execute</abbr></a></td><td class="text-right">4</td></tr>
+       <tr><td><a href="Filter/Modifier/DataRangeMultiplier.php.html#11"><abbr title="App\Filter\Modifier\DataRangeMultiplier::modify">modify</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Filter/Modifier/FixedPriceVoucher.php.html#11"><abbr title="App\Filter\Modifier\FixedPriceVoucher::modify">modify</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Filter/Modifier/EvenItemsMultiplier.php.html#11"><abbr title="App\Filter\Modifier\EvenItemsMultiplier::modify">modify</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Filter/Modifier/Factory/PriceModifierFactory.php.html#15"><abbr title="App\Filter\Modifier\Factory\PriceModifierFactory::create">create</abbr></a></td><td class="text-right">2</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 9.2.29</a> using <a href="https://secure.php.net/" target="_top">PHP 8.2.11</a> and <a href="https://phpunit.de/">PHPUnit 9.6.13</a> at Sat Nov 18 9:48:55 UTC 2023.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="_js/jquery.min.js?v=9.2.29" type="text/javascript"></script>
+  <script src="_js/d3.min.js?v=9.2.29" type="text/javascript"></script>
+  <script src="_js/nv.d3.min.js?v=9.2.29" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([30,1,0,0,0,0,1,1,2,5,3,5], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([94,0,0,0,0,0,0,1,1,3,0,62], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[0,2,"<a href=\"Cache\/PromotionCache.php.html#10\">App\\Cache\\PromotionCache<\/a>"],[82.14285714285714,6,"<a href=\"Command\/RefreshStockProfileCommand.php.html#20\">App\\Command\\RefreshStockProfileCommand<\/a>"],[0,1,"<a href=\"Controller\/HomeController.php.html#9\">App\\Controller\\HomeController<\/a>"],[0,18,"<a href=\"Controller\/MoviesController.php.html#16\">App\\Controller\\MoviesController<\/a>"],[0,1,"<a href=\"Controller\/ProcessTaskController.php.html#11\">App\\Controller\\ProcessTaskController<\/a>"],[0,2,"<a href=\"Controller\/ProductsController.php.html#18\">App\\Controller\\ProductsController<\/a>"],[0,3,"<a href=\"Controller\/RegistrationController.php.html#14\">App\\Controller\\RegistrationController<\/a>"],[0,2,"<a href=\"Controller\/SecurityController.php.html#10\">App\\Controller\\SecurityController<\/a>"],[83.33333333333334,18,"<a href=\"DTO\/LowestPriceEnquiry.php.html#9\">App\\DTO\\LowestPriceEnquiry<\/a>"],[0,1,"<a href=\"DataFixtures\/A1ProductFixtures.php.html#9\">App\\DataFixtures\\A1ProductFixtures<\/a>"],[0,1,"<a href=\"DataFixtures\/A2PromotionFixtures.php.html#9\">App\\DataFixtures\\A2PromotionFixtures<\/a>"],[0,1,"<a href=\"DataFixtures\/A3ProductPromotionFixtures.php.html#10\">App\\DataFixtures\\A3ProductPromotionFixtures<\/a>"],[0,1,"<a href=\"DataFixtures\/ActorFixtures.php.html#9\">App\\DataFixtures\\ActorFixtures<\/a>"],[0,1,"<a href=\"DataFixtures\/MovieFixtures.php.html#9\">App\\DataFixtures\\MovieFixtures<\/a>"],[0,9,"<a href=\"Entity\/Actor.php.html#10\">App\\Entity\\Actor<\/a>"],[0,14,"<a href=\"Entity\/Movie.php.html#11\">App\\Entity\\Movie<\/a>"],[75,3,"<a href=\"Entity\/Product.php.html#10\">App\\Entity\\Product<\/a>"],[0,7,"<a href=\"Entity\/ProductPromotion.php.html#9\">App\\Entity\\ProductPromotion<\/a>"],[93.33333333333333,11,"<a href=\"Entity\/Promotion.php.html#10\">App\\Entity\\Promotion<\/a>"],[96.29629629629629,19,"<a href=\"Entity\/Stock.php.html#9\">App\\Entity\\Stock<\/a>"],[0,9,"<a href=\"Entity\/User.php.html#11\">App\\Entity\\User<\/a>"],[100,2,"<a href=\"Event\/AfterDtoCreatedEvent.php.html#8\">App\\Event\\AfterDtoCreatedEvent<\/a>"],[0,2,"<a href=\"EventListener\/ExceptionListener.php.html#12\">App\\EventListener\\ExceptionListener<\/a>"],[92.3076923076923,5,"<a href=\"EventSubscriber\/DtoSubscriber.php.html#13\">App\\EventSubscriber\\DtoSubscriber<\/a>"],[100,4,"<a href=\"Filter\/LowestPriceFilter.php.html#10\">App\\Filter\\LowestPriceFilter<\/a>"],[83.33333333333334,3,"<a href=\"Filter\/Modifier\/DataRangeMultiplier.php.html#9\">App\\Filter\\Modifier\\DataRangeMultiplier<\/a>"],[80,2,"<a href=\"Filter\/Modifier\/EvenItemsMultiplier.php.html#9\">App\\Filter\\Modifier\\EvenItemsMultiplier<\/a>"],[80,2,"<a href=\"Filter\/Modifier\/Factory\/PriceModifierFactory.php.html#9\">App\\Filter\\Modifier\\Factory\\PriceModifierFactory<\/a>"],[66.66666666666666,2,"<a href=\"Filter\/Modifier\/FixedPriceVoucher.php.html#9\">App\\Filter\\Modifier\\FixedPriceVoucher<\/a>"],[0,2,"<a href=\"Form\/MovieFormType.php.html#14\">App\\Form\\MovieFormType<\/a>"],[0,2,"<a href=\"Form\/RegistrationFormType.php.html#15\">App\\Form\\RegistrationFormType<\/a>"],[100,2,"<a href=\"Http\/FakeYahooFinanceApiClient.php.html#8\">App\\Http\\FakeYahooFinanceApiClient<\/a>"],[0,3,"<a href=\"Http\/YahooFinanceApiClient.php.html#8\">App\\Http\\YahooFinanceApiClient<\/a>"],[100,0,"<a href=\"Kernel.php.html#8\">App\\Kernel<\/a>"],[0,2,"<a href=\"Message\/ProcessTaskMessage.php.html#5\">App\\Message\\ProcessTaskMessage<\/a>"],[0,2,"<a href=\"MessageHandler\/ProcessTaskMessageHandler.php.html#10\">App\\MessageHandler\\ProcessTaskMessageHandler<\/a>"],[0,1,"<a href=\"Repository\/ActorRepository.php.html#17\">App\\Repository\\ActorRepository<\/a>"],[0,1,"<a href=\"Repository\/MovieRepository.php.html#17\">App\\Repository\\MovieRepository<\/a>"],[0,1,"<a href=\"Repository\/ProductPromotionRepository.php.html#17\">App\\Repository\\ProductPromotionRepository<\/a>"],[0,3,"<a href=\"Repository\/ProductRepository.php.html#19\">App\\Repository\\ProductRepository<\/a>"],[0,2,"<a href=\"Repository\/PromotionRepository.php.html#18\">App\\Repository\\PromotionRepository<\/a>"],[100,1,"<a href=\"Repository\/StockRepository.php.html#17\">App\\Repository\\StockRepository<\/a>"],[0,3,"<a href=\"Repository\/UserRepository.php.html#22\">App\\Repository\\UserRepository<\/a>"],[0,5,"<a href=\"Security\/LoginFormAuthenticator.php.html#18\">App\\Security\\LoginFormAuthenticator<\/a>"],[0,3,"<a href=\"Service\/Serializer\/DTOSerializer.php.html#16\">App\\Service\\Serializer\\DTOSerializer<\/a>"],[75,2,"<a href=\"Service\/ServiceException.php.html#7\">App\\Service\\ServiceException<\/a>"],[50,4,"<a href=\"Service\/ServiceExceptionData.php.html#4\">App\\Service\\ServiceExceptionData<\/a>"],[8.333333333333332,4,"<a href=\"Service\/ValidationExceptionData.php.html#7\">App\\Service\\ValidationExceptionData<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[0,1,"<a href=\"Cache\/PromotionCache.php.html#12\">App\\Cache\\PromotionCache::__construct<\/a>"],[0,1,"<a href=\"Cache\/PromotionCache.php.html#17\">App\\Cache\\PromotionCache::findValidForProduct<\/a>"],[100,1,"<a href=\"Command\/RefreshStockProfileCommand.php.html#26\">App\\Command\\RefreshStockProfileCommand::__construct<\/a>"],[100,1,"<a href=\"Command\/RefreshStockProfileCommand.php.html#36\">App\\Command\\RefreshStockProfileCommand::configure<\/a>"],[77.27272727272727,4,"<a href=\"Command\/RefreshStockProfileCommand.php.html#45\">App\\Command\\RefreshStockProfileCommand::execute<\/a>"],[0,1,"<a href=\"Controller\/HomeController.php.html#11\">App\\Controller\\HomeController::home<\/a>"],[0,1,"<a href=\"Controller\/MoviesController.php.html#18\">App\\Controller\\MoviesController::__construct<\/a>"],[0,1,"<a href=\"Controller\/MoviesController.php.html#41\">App\\Controller\\MoviesController::index<\/a>"],[0,5,"<a href=\"Controller\/MoviesController.php.html#53\">App\\Controller\\MoviesController::create<\/a>"],[0,2,"<a href=\"Controller\/MoviesController.php.html#88\">App\\Controller\\MoviesController::show<\/a>"],[0,7,"<a href=\"Controller\/MoviesController.php.html#105\">App\\Controller\\MoviesController::edit<\/a>"],[0,2,"<a href=\"Controller\/MoviesController.php.html#149\">App\\Controller\\MoviesController::delete<\/a>"],[0,1,"<a href=\"Controller\/ProcessTaskController.php.html#13\">App\\Controller\\ProcessTaskController::index<\/a>"],[0,1,"<a href=\"Controller\/ProductsController.php.html#20\">App\\Controller\\ProductsController::__construct<\/a>"],[0,1,"<a href=\"Controller\/ProductsController.php.html#24\">App\\Controller\\ProductsController::lowestPrice<\/a>"],[0,3,"<a href=\"Controller\/RegistrationController.php.html#16\">App\\Controller\\RegistrationController::register<\/a>"],[0,1,"<a href=\"Controller\/SecurityController.php.html#12\">App\\Controller\\SecurityController::login<\/a>"],[0,1,"<a href=\"Controller\/SecurityController.php.html#27\">App\\Controller\\SecurityController::logout<\/a>"],[100,1,"<a href=\"DTO\/LowestPriceEnquiry.php.html#32\">App\\DTO\\LowestPriceEnquiry::getQuantity<\/a>"],[100,1,"<a href=\"DTO\/LowestPriceEnquiry.php.html#37\">App\\DTO\\LowestPriceEnquiry::setQuantity<\/a>"],[0,1,"<a href=\"DTO\/LowestPriceEnquiry.php.html#42\">App\\DTO\\LowestPriceEnquiry::getRequestLocation<\/a>"],[0,1,"<a href=\"DTO\/LowestPriceEnquiry.php.html#47\">App\\DTO\\LowestPriceEnquiry::setRequestLocation<\/a>"],[100,1,"<a href=\"DTO\/LowestPriceEnquiry.php.html#52\">App\\DTO\\LowestPriceEnquiry::getVoucherCode<\/a>"],[100,1,"<a href=\"DTO\/LowestPriceEnquiry.php.html#57\">App\\DTO\\LowestPriceEnquiry::setVoucherCode<\/a>"],[100,1,"<a href=\"DTO\/LowestPriceEnquiry.php.html#62\">App\\DTO\\LowestPriceEnquiry::getRequestDate<\/a>"],[100,1,"<a href=\"DTO\/LowestPriceEnquiry.php.html#67\">App\\DTO\\LowestPriceEnquiry::setRequestDate<\/a>"],[100,1,"<a href=\"DTO\/LowestPriceEnquiry.php.html#72\">App\\DTO\\LowestPriceEnquiry::getPrice<\/a>"],[100,1,"<a href=\"DTO\/LowestPriceEnquiry.php.html#77\">App\\DTO\\LowestPriceEnquiry::setPrice<\/a>"],[100,1,"<a href=\"DTO\/LowestPriceEnquiry.php.html#82\">App\\DTO\\LowestPriceEnquiry::getDiscountedPrice<\/a>"],[100,1,"<a href=\"DTO\/LowestPriceEnquiry.php.html#87\">App\\DTO\\LowestPriceEnquiry::setDiscountedPrice<\/a>"],[0,1,"<a href=\"DTO\/LowestPriceEnquiry.php.html#92\">App\\DTO\\LowestPriceEnquiry::getPromotionId<\/a>"],[100,1,"<a href=\"DTO\/LowestPriceEnquiry.php.html#97\">App\\DTO\\LowestPriceEnquiry::setPromotionId<\/a>"],[100,1,"<a href=\"DTO\/LowestPriceEnquiry.php.html#102\">App\\DTO\\LowestPriceEnquiry::getPromotionName<\/a>"],[100,1,"<a href=\"DTO\/LowestPriceEnquiry.php.html#107\">App\\DTO\\LowestPriceEnquiry::setPromotionName<\/a>"],[100,1,"<a href=\"DTO\/LowestPriceEnquiry.php.html#112\">App\\DTO\\LowestPriceEnquiry::getProduct<\/a>"],[100,1,"<a href=\"DTO\/LowestPriceEnquiry.php.html#117\">App\\DTO\\LowestPriceEnquiry::setProduct<\/a>"],[0,1,"<a href=\"DataFixtures\/A1ProductFixtures.php.html#11\">App\\DataFixtures\\A1ProductFixtures::load<\/a>"],[0,1,"<a href=\"DataFixtures\/A2PromotionFixtures.php.html#11\">App\\DataFixtures\\A2PromotionFixtures::load<\/a>"],[0,1,"<a href=\"DataFixtures\/A3ProductPromotionFixtures.php.html#12\">App\\DataFixtures\\A3ProductPromotionFixtures::load<\/a>"],[0,1,"<a href=\"DataFixtures\/ActorFixtures.php.html#11\">App\\DataFixtures\\ActorFixtures::load<\/a>"],[0,1,"<a href=\"DataFixtures\/MovieFixtures.php.html#11\">App\\DataFixtures\\MovieFixtures::load<\/a>"],[0,1,"<a href=\"Entity\/Actor.php.html#24\">App\\Entity\\Actor::__construct<\/a>"],[0,1,"<a href=\"Entity\/Actor.php.html#29\">App\\Entity\\Actor::getId<\/a>"],[0,1,"<a href=\"Entity\/Actor.php.html#34\">App\\Entity\\Actor::getName<\/a>"],[0,1,"<a href=\"Entity\/Actor.php.html#39\">App\\Entity\\Actor::setName<\/a>"],[0,1,"<a href=\"Entity\/Actor.php.html#49\">App\\Entity\\Actor::getMovies<\/a>"],[0,2,"<a href=\"Entity\/Actor.php.html#54\">App\\Entity\\Actor::addMovie<\/a>"],[0,2,"<a href=\"Entity\/Actor.php.html#64\">App\\Entity\\Actor::removeMovie<\/a>"],[0,1,"<a href=\"Entity\/Movie.php.html#39\">App\\Entity\\Movie::__construct<\/a>"],[0,1,"<a href=\"Entity\/Movie.php.html#44\">App\\Entity\\Movie::getId<\/a>"],[0,1,"<a href=\"Entity\/Movie.php.html#49\">App\\Entity\\Movie::getTitle<\/a>"],[0,1,"<a href=\"Entity\/Movie.php.html#54\">App\\Entity\\Movie::setTitle<\/a>"],[0,1,"<a href=\"Entity\/Movie.php.html#61\">App\\Entity\\Movie::getReleaseYear<\/a>"],[0,1,"<a href=\"Entity\/Movie.php.html#66\">App\\Entity\\Movie::setReleaseYear<\/a>"],[0,1,"<a href=\"Entity\/Movie.php.html#73\">App\\Entity\\Movie::getDescription<\/a>"],[0,1,"<a href=\"Entity\/Movie.php.html#78\">App\\Entity\\Movie::setDescription<\/a>"],[0,1,"<a href=\"Entity\/Movie.php.html#85\">App\\Entity\\Movie::getImagePath<\/a>"],[0,1,"<a href=\"Entity\/Movie.php.html#90\">App\\Entity\\Movie::setImagePath<\/a>"],[0,1,"<a href=\"Entity\/Movie.php.html#100\">App\\Entity\\Movie::getActors<\/a>"],[0,2,"<a href=\"Entity\/Movie.php.html#105\">App\\Entity\\Movie::addActor<\/a>"],[0,1,"<a href=\"Entity\/Movie.php.html#114\">App\\Entity\\Movie::removeActor<\/a>"],[0,1,"<a href=\"Entity\/Product.php.html#29\">App\\Entity\\Product::getId<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#34\">App\\Entity\\Product::getPrice<\/a>"],[100,1,"<a href=\"Entity\/Product.php.html#39\">App\\Entity\\Product::setPrice<\/a>"],[0,1,"<a href=\"Entity\/ProductPromotion.php.html#28\">App\\Entity\\ProductPromotion::getId<\/a>"],[0,1,"<a href=\"Entity\/ProductPromotion.php.html#33\">App\\Entity\\ProductPromotion::getProduct<\/a>"],[0,1,"<a href=\"Entity\/ProductPromotion.php.html#38\">App\\Entity\\ProductPromotion::setProduct<\/a>"],[0,1,"<a href=\"Entity\/ProductPromotion.php.html#45\">App\\Entity\\ProductPromotion::getPromotion<\/a>"],[0,1,"<a href=\"Entity\/ProductPromotion.php.html#50\">App\\Entity\\ProductPromotion::setPromotion<\/a>"],[0,1,"<a href=\"Entity\/ProductPromotion.php.html#57\">App\\Entity\\ProductPromotion::getValidTo<\/a>"],[0,1,"<a href=\"Entity\/ProductPromotion.php.html#62\">App\\Entity\\ProductPromotion::setValidTo<\/a>"],[100,1,"<a href=\"Entity\/Promotion.php.html#33\">App\\Entity\\Promotion::__construct<\/a>"],[100,1,"<a href=\"Entity\/Promotion.php.html#37\">App\\Entity\\Promotion::getId<\/a>"],[100,1,"<a href=\"Entity\/Promotion.php.html#42\">App\\Entity\\Promotion::getName<\/a>"],[100,1,"<a href=\"Entity\/Promotion.php.html#47\">App\\Entity\\Promotion::setName<\/a>"],[100,1,"<a href=\"Entity\/Promotion.php.html#54\">App\\Entity\\Promotion::getType<\/a>"],[100,1,"<a href=\"Entity\/Promotion.php.html#59\">App\\Entity\\Promotion::setType<\/a>"],[100,1,"<a href=\"Entity\/Promotion.php.html#66\">App\\Entity\\Promotion::getAdjustment<\/a>"],[100,1,"<a href=\"Entity\/Promotion.php.html#71\">App\\Entity\\Promotion::setAdjustment<\/a>"],[100,1,"<a href=\"Entity\/Promotion.php.html#78\">App\\Entity\\Promotion::getCriteria<\/a>"],[100,1,"<a href=\"Entity\/Promotion.php.html#83\">App\\Entity\\Promotion::setCriteria<\/a>"],[0,1,"<a href=\"Entity\/Promotion.php.html#90\">App\\Entity\\Promotion::getProductPromotions<\/a>"],[100,1,"<a href=\"Entity\/Stock.php.html#44\">App\\Entity\\Stock::getId<\/a>"],[0,1,"<a href=\"Entity\/Stock.php.html#49\">App\\Entity\\Stock::getSymbol<\/a>"],[100,1,"<a href=\"Entity\/Stock.php.html#54\">App\\Entity\\Stock::setSymbol<\/a>"],[100,1,"<a href=\"Entity\/Stock.php.html#61\">App\\Entity\\Stock::getShortName<\/a>"],[100,1,"<a href=\"Entity\/Stock.php.html#66\">App\\Entity\\Stock::setShortName<\/a>"],[100,1,"<a href=\"Entity\/Stock.php.html#73\">App\\Entity\\Stock::getCurrency<\/a>"],[100,1,"<a href=\"Entity\/Stock.php.html#78\">App\\Entity\\Stock::setCurrency<\/a>"],[100,1,"<a href=\"Entity\/Stock.php.html#85\">App\\Entity\\Stock::getExchangeName<\/a>"],[100,1,"<a href=\"Entity\/Stock.php.html#90\">App\\Entity\\Stock::setExchangeName<\/a>"],[100,1,"<a href=\"Entity\/Stock.php.html#97\">App\\Entity\\Stock::getRegion<\/a>"],[100,1,"<a href=\"Entity\/Stock.php.html#102\">App\\Entity\\Stock::setRegion<\/a>"],[100,1,"<a href=\"Entity\/Stock.php.html#109\">App\\Entity\\Stock::getLang<\/a>"],[100,1,"<a href=\"Entity\/Stock.php.html#114\">App\\Entity\\Stock::setLang<\/a>"],[100,1,"<a href=\"Entity\/Stock.php.html#119\">App\\Entity\\Stock::getPrice<\/a>"],[100,1,"<a href=\"Entity\/Stock.php.html#124\">App\\Entity\\Stock::setPrice<\/a>"],[100,1,"<a href=\"Entity\/Stock.php.html#131\">App\\Entity\\Stock::getPreviousClose<\/a>"],[100,1,"<a href=\"Entity\/Stock.php.html#136\">App\\Entity\\Stock::setPreviousClose<\/a>"],[100,1,"<a href=\"Entity\/Stock.php.html#143\">App\\Entity\\Stock::getPriceChange<\/a>"],[100,1,"<a href=\"Entity\/Stock.php.html#148\">App\\Entity\\Stock::setPriceChange<\/a>"],[0,1,"<a href=\"Entity\/User.php.html#32\">App\\Entity\\User::getId<\/a>"],[0,1,"<a href=\"Entity\/User.php.html#37\">App\\Entity\\User::getEmail<\/a>"],[0,1,"<a href=\"Entity\/User.php.html#42\">App\\Entity\\User::setEmail<\/a>"],[0,1,"<a href=\"Entity\/User.php.html#54\">App\\Entity\\User::getUserIdentifier<\/a>"],[0,1,"<a href=\"Entity\/User.php.html#62\">App\\Entity\\User::getRoles<\/a>"],[0,1,"<a href=\"Entity\/User.php.html#71\">App\\Entity\\User::setRoles<\/a>"],[0,1,"<a href=\"Entity\/User.php.html#81\">App\\Entity\\User::getPassword<\/a>"],[0,1,"<a href=\"Entity\/User.php.html#86\">App\\Entity\\User::setPassword<\/a>"],[0,1,"<a href=\"Entity\/User.php.html#96\">App\\Entity\\User::eraseCredentials<\/a>"],[100,1,"<a href=\"Event\/AfterDtoCreatedEvent.php.html#13\">App\\Event\\AfterDtoCreatedEvent::__construct<\/a>"],[100,1,"<a href=\"Event\/AfterDtoCreatedEvent.php.html#17\">App\\Event\\AfterDtoCreatedEvent::getDto<\/a>"],[0,2,"<a href=\"EventListener\/ExceptionListener.php.html#15\">App\\EventListener\\ExceptionListener::onKernelException<\/a>"],[100,1,"<a href=\"EventSubscriber\/DtoSubscriber.php.html#15\">App\\EventSubscriber\\DtoSubscriber::__construct<\/a>"],[100,1,"<a href=\"EventSubscriber\/DtoSubscriber.php.html#19\">App\\EventSubscriber\\DtoSubscriber::getSubscribedEvents<\/a>"],[100,2,"<a href=\"EventSubscriber\/DtoSubscriber.php.html#29\">App\\EventSubscriber\\DtoSubscriber::validateDto<\/a>"],[0,1,"<a href=\"EventSubscriber\/DtoSubscriber.php.html#45\">App\\EventSubscriber\\DtoSubscriber::doSomethingElse<\/a>"],[100,1,"<a href=\"Filter\/LowestPriceFilter.php.html#13\">App\\Filter\\LowestPriceFilter::__construct<\/a>"],[100,3,"<a href=\"Filter\/LowestPriceFilter.php.html#18\">App\\Filter\\LowestPriceFilter::apply<\/a>"],[83.33333333333334,3,"<a href=\"Filter\/Modifier\/DataRangeMultiplier.php.html#11\">App\\Filter\\Modifier\\DataRangeMultiplier::modify<\/a>"],[80,2,"<a href=\"Filter\/Modifier\/EvenItemsMultiplier.php.html#11\">App\\Filter\\Modifier\\EvenItemsMultiplier::modify<\/a>"],[80,2,"<a href=\"Filter\/Modifier\/Factory\/PriceModifierFactory.php.html#15\">App\\Filter\\Modifier\\Factory\\PriceModifierFactory::create<\/a>"],[66.66666666666666,2,"<a href=\"Filter\/Modifier\/FixedPriceVoucher.php.html#11\">App\\Filter\\Modifier\\FixedPriceVoucher::modify<\/a>"],[0,1,"<a href=\"Form\/MovieFormType.php.html#16\">App\\Form\\MovieFormType::buildForm<\/a>"],[0,1,"<a href=\"Form\/MovieFormType.php.html#55\">App\\Form\\MovieFormType::configureOptions<\/a>"],[0,1,"<a href=\"Form\/RegistrationFormType.php.html#17\">App\\Form\\RegistrationFormType::buildForm<\/a>"],[0,1,"<a href=\"Form\/RegistrationFormType.php.html#49\">App\\Form\\RegistrationFormType::configureOptions<\/a>"],[100,1,"<a href=\"Http\/FakeYahooFinanceApiClient.php.html#14\">App\\Http\\FakeYahooFinanceApiClient::setContent<\/a>"],[100,1,"<a href=\"Http\/FakeYahooFinanceApiClient.php.html#26\">App\\Http\\FakeYahooFinanceApiClient::fetchStockProfile<\/a>"],[0,1,"<a href=\"Http\/YahooFinanceApiClient.php.html#13\">App\\Http\\YahooFinanceApiClient::__construct<\/a>"],[0,2,"<a href=\"Http\/YahooFinanceApiClient.php.html#17\">App\\Http\\YahooFinanceApiClient::fetchStockProfile<\/a>"],[0,1,"<a href=\"Message\/ProcessTaskMessage.php.html#13\">App\\Message\\ProcessTaskMessage::__construct<\/a>"],[0,1,"<a href=\"Message\/ProcessTaskMessage.php.html#18\">App\\Message\\ProcessTaskMessage::getOrderId<\/a>"],[0,1,"<a href=\"MessageHandler\/ProcessTaskMessageHandler.php.html#13\">App\\MessageHandler\\ProcessTaskMessageHandler::__construct<\/a>"],[0,1,"<a href=\"MessageHandler\/ProcessTaskMessageHandler.php.html#18\">App\\MessageHandler\\ProcessTaskMessageHandler::__invoke<\/a>"],[0,1,"<a href=\"Repository\/ActorRepository.php.html#19\">App\\Repository\\ActorRepository::__construct<\/a>"],[0,1,"<a href=\"Repository\/MovieRepository.php.html#19\">App\\Repository\\MovieRepository::__construct<\/a>"],[0,1,"<a href=\"Repository\/ProductPromotionRepository.php.html#19\">App\\Repository\\ProductPromotionRepository::__construct<\/a>"],[0,1,"<a href=\"Repository\/ProductRepository.php.html#21\">App\\Repository\\ProductRepository::__construct<\/a>"],[0,2,"<a href=\"Repository\/ProductRepository.php.html#26\">App\\Repository\\ProductRepository::findOrFail<\/a>"],[0,1,"<a href=\"Repository\/PromotionRepository.php.html#20\">App\\Repository\\PromotionRepository::__construct<\/a>"],[0,1,"<a href=\"Repository\/PromotionRepository.php.html#25\">App\\Repository\\PromotionRepository::findValidForProduct<\/a>"],[100,1,"<a href=\"Repository\/StockRepository.php.html#19\">App\\Repository\\StockRepository::__construct<\/a>"],[0,1,"<a href=\"Repository\/UserRepository.php.html#24\">App\\Repository\\UserRepository::__construct<\/a>"],[0,2,"<a href=\"Repository\/UserRepository.php.html#32\">App\\Repository\\UserRepository::upgradePassword<\/a>"],[0,1,"<a href=\"Security\/LoginFormAuthenticator.php.html#24\">App\\Security\\LoginFormAuthenticator::__construct<\/a>"],[0,1,"<a href=\"Security\/LoginFormAuthenticator.php.html#28\">App\\Security\\LoginFormAuthenticator::authenticate<\/a>"],[0,2,"<a href=\"Security\/LoginFormAuthenticator.php.html#42\">App\\Security\\LoginFormAuthenticator::onAuthenticationSuccess<\/a>"],[0,1,"<a href=\"Security\/LoginFormAuthenticator.php.html#52\">App\\Security\\LoginFormAuthenticator::getLoginUrl<\/a>"],[0,1,"<a href=\"Service\/Serializer\/DTOSerializer.php.html#20\">App\\Service\\Serializer\\DTOSerializer::__construct<\/a>"],[0,1,"<a href=\"Service\/Serializer\/DTOSerializer.php.html#36\">App\\Service\\Serializer\\DTOSerializer::serialize<\/a>"],[0,1,"<a href=\"Service\/Serializer\/DTOSerializer.php.html#41\">App\\Service\\Serializer\\DTOSerializer::deserialize<\/a>"],[100,1,"<a href=\"Service\/ServiceException.php.html#9\">App\\Service\\ServiceException::__construct<\/a>"],[0,1,"<a href=\"Service\/ServiceException.php.html#18\">App\\Service\\ServiceException::getExceptionData<\/a>"],[100,1,"<a href=\"Service\/ServiceExceptionData.php.html#6\">App\\Service\\ServiceExceptionData::__construct<\/a>"],[100,1,"<a href=\"Service\/ServiceExceptionData.php.html#10\">App\\Service\\ServiceExceptionData::getStatusCode<\/a>"],[100,1,"<a href=\"Service\/ServiceExceptionData.php.html#15\">App\\Service\\ServiceExceptionData::getType<\/a>"],[0,1,"<a href=\"Service\/ServiceExceptionData.php.html#20\">App\\Service\\ServiceExceptionData::toArray<\/a>"],[100,1,"<a href=\"Service\/ValidationExceptionData.php.html#9\">App\\Service\\ValidationExceptionData::__construct<\/a>"],[0,1,"<a href=\"Service\/ValidationExceptionData.php.html#14\">App\\Service\\ValidationExceptionData::toArray<\/a>"],[0,2,"<a href=\"Service\/ValidationExceptionData.php.html#22\">App\\Service\\ValidationExceptionData::getViolationsArray<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>
