@@ -10,8 +10,8 @@ Setup
   
   * ``docker compose up -d `` - For a standard build / setup
   * ``bash ./bin/dev-mode.sh -d`` - For a development build / setup
-  * ``{XDEBUG_MODE=debug} bash ./bin/dev-mode.sh -d {--build}`` - For a development build / setup with XDEBUG
-
+  * ``{XDEBUG_MODE=debug,coverage} bash ./bin/dev-mode.sh -d {--build}`` - For a development build / setup with XDEBUG
+  * ``XDEBUG_MODE=debug,coverage bash ./bin/dev-mode.sh -d --build`` - For a development build / setup with XDEBUG
 
 * Run Composer install to populate vendor folder
   
@@ -1981,6 +1981,22 @@ GET produce_index/_search
 2. If you do decide to define your own mapping, you can do so at index creation.
 3. ONE mapping is defined per index. Once the index has been created, we can only add new fields to a mapping. We CANNOT change the mapping of an existing field.
 4. If you must change the type of existing field, you must create a new index with the desired mapping, then reindex all documents into the new index.
+
+<h1>SonarQube - static testing analysis software.</h1>
+
+Used to manage source code quality and consistency
+
+- Potential bugs
+- Code defects to design inefficiencies
+- Code duplication
+- Lack of test coverage
+- Excess complexity
+
+`bash ./bin/sonarqube-scanner.sh` - run SonarQube scanner
+
+Code coverage
+`docker exec app vendor/bin/phpunit tests --coverage-html tests/coverage` - drop the /tests/coverage/index.html into a browser
+`docker exec app vendor/bin/phpunit tests --coverage-clover=tests/coverage.xml` -  Generate code coverage report in PHPUnit XML format
 
 On merge into main we want to:
 ------------

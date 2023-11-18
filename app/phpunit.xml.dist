@@ -17,6 +17,7 @@
         <server name="SYMFONY_PHPUNIT_REMOVE" value="" />
         <server name="SYMFONY_PHPUNIT_VERSION" value="9.5" />
         <env name="SYMFONY_DEPRECATIONS_HELPER" value="disabled" />
+        <ini name="xdebug.mode" value="coverage" />
     </php>
 
     <testsuites>
@@ -31,7 +32,9 @@
         </exclude>
     </groups>
 
-    <coverage processUncoveredFiles="true">
+    <coverage processUncoveredFiles="true"
+        cacheDirectory="./phpunit.cache/code-coverage"
+    >
         <include>
             <directory suffix=".php">src</directory>
         </include>
